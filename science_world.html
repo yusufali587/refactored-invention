@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102a43">
+<title>Science World — বিজ্ঞান জানো, প্রযুক্তি শেখো</title>
+<style>
+:root{--navy:#102a43;--blue:#1769aa;--cyan:#dff6ff;--bg:#f4f8fc;--ink:#183247;--muted:#607789;--white:#fff;--line:#dce7ef;--gold:#ffd166}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif;line-height:1.65}
+header{background:linear-gradient(130deg,#102a43,#1769aa);color:white;padding:26px 18px 22px}
+.wrap{max-width:980px;margin:auto;padding:0 16px}.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:15px;background:#ffffff20;display:grid;place-items:center;font-size:27px}
+h1{font-size:clamp(24px,5vw,34px);margin:0}.tag{margin:4px 0 0;color:#d9efff}
+nav{display:flex;gap:8px;overflow:auto;padding:14px 0 2px}.tab{border:1px solid #ffffff55;background:#ffffff12;color:white;padding:8px 13px;border-radius:999px;white-space:nowrap;font:inherit;cursor:pointer}.tab.active{background:white;color:var(--navy);font-weight:700}
+main{padding:22px 0 40px}.hero{background:linear-gradient(120deg,#e3f6ff,#fff);border:1px solid #cce8f6;border-radius:22px;padding:22px;margin-bottom:18px}.hero h2{font-size:24px;margin:0 0 6px}.hero p{margin:0;color:#456276}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.card{background:white;border:1px solid var(--line);border-radius:17px;padding:17px;box-shadow:0 5px 18px #173b5510}.card h3{margin:4px 0 7px;font-size:19px}.card p{color:var(--muted);margin:0 0 12px}.emoji{font-size:27px}.btn{border:0;border-radius:11px;padding:9px 14px;background:var(--blue);color:white;font:inherit;font-weight:650;cursor:pointer}.btn.secondary{background:#eaf3fa;color:var(--blue)}.btn:focus,.tab:focus{outline:3px solid var(--gold);outline-offset:2px}
+.section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:24px 0 12px}.section-title h2{font-size:21px;margin:0}
+.article{background:white;border:1px solid var(--line);border-radius:18px;padding:20px;margin:12px 0}.article h2{margin:0 0 8px}.article h3{margin:16px 0 5px}.article p{margin:7px 0}.pill{display:inline-block;background:#e8f5fc;color:#145b8b;padding:3px 9px;border-radius:99px;font-size:13px}
+.quiz-q{font-size:19px;font-weight:700}.option{display:block;width:100%;text-align:left;background:#f3f7fa;border:1px solid var(--line);padding:11px 13px;border-radius:11px;margin:9px 0;font:inherit;cursor:pointer;color:var(--ink)}.option.selected{border-color:var(--blue);background:#e6f4ff}.feedback{margin:12px 0;padding:11px;border-radius:10px;background:#edf7ef}.hide{display:none}.muted{color:var(--muted)}footer{text-align:center;padding:20px;color:var(--muted);font-size:14px}
+input{font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px;width:100%;max-width:420px}
+@media(min-width:700px){header{padding-top:32px}.hero{padding:30px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <div class="brand"><div class="logo">🔬</div><div><h1>Science World</h1><p class="tag">বিজ্ঞান জানো, প্রযুক্তি শেখো!</p></div></div>
+  <nav aria-label="প্রধান মেনু">
+   <button class="tab active" data-page="home">🏠 হোম</button>
+   <button class="tab" data-page="science">🔬 বিজ্ঞান</button>
+   <button class="tab" data-page="tech">💻 প্রযুক্তি</button>
+   <button class="tab" data-page="projects">🧪 প্রজেক্ট</button>
+   <button class="tab" data-page="quiz">🧠 কুইজ</button>
+   <button class="tab" data-page="saved">⭐ সংরক্ষিত</button>
+  </nav>
+ </div>
+</header>
+<main class="wrap">
+<section id="home" class="page">
+ <div class="hero"><h2>জানার আনন্দে এগিয়ে চলো! 🌌</h2><p>সহজ বাংলায় বিজ্ঞান, প্রযুক্তি, মহাকাশ এবং নিরাপদ ঘরোয়া বিজ্ঞান-প্রজেক্ট সম্পর্কে জানো।</p></div>
+ <div class="grid">
+  <div class="card"><div class="emoji">🔬</div><h3>বিজ্ঞান</h3><p>মানবদেহ, পদার্থ, উদ্ভিদ ও পরিবেশ সম্পর্কে জানো।</p><button class="btn" onclick="go('science')">পড়তে শুরু করো</button></div>
+  <div class="card"><div class="emoji">💻</div><h3>প্রযুক্তি</h3><p>কম্পিউটার, ইন্টারনেট ও কৃত্রিম বুদ্ধিমত্তার পরিচয়।</p><button class="btn" onclick="go('tech')">জেনে নাও</button></div>
+  <div class="card"><div class="emoji">🧪</div><h3>সহজ প্রজেক্ট</h3><p>কম খরচে নিরাপদে শেখার মতো বিজ্ঞান কার্যক্রম।</p><button class="btn" onclick="go('projects')">প্রজেক্ট দেখো</button></div>
+  <div class="card"><div class="emoji">🧠</div><h3>বিজ্ঞান কুইজ</h3><p>নিজের জ্ঞান যাচাই করো এবং সঠিক উত্তর শিখে নাও।</p><button class="btn" onclick="go('quiz')">কুইজ খেলো</button></div>
+ </div>
+ <div class="section-title"><h2>আজকের বিজ্ঞান তথ্য</h2></div>
+ <div class="article"><span class="pill">জেনে রাখো</span><h3>মানবদেহের সবচেয়ে বড় অঙ্গ কোনটি?</h3><p>মানবদেহের সবচেয়ে বড় অঙ্গ হলো ত্বক। এটি শরীরকে বাইরের আঘাত, জীবাণু ও পানিশূন্যতা থেকে সুরক্ষায় সাহায্য করে।</p></div>
+</section>
+<section id="science" class="page hide">
+ <div class="section-title"><h2>🔬 বিজ্ঞান জগৎ</h2></div>
+ <article class="article"><span class="pill">মানবদেহ</span><h2>হৃদপিণ্ড কীভাবে কাজ করে?</h2><p>হৃদপিণ্ড একটি পেশিবহুল অঙ্গ। এটি সংকোচন ও প্রসারণের মাধ্যমে রক্ত সারা শরীরে পাঠায়। মানুষের হৃদপিণ্ডে চারটি প্রকোষ্ঠ থাকে—দুটি অলিন্দ ও দুটি নিলয়।</p><h3>মনে রাখবে</h3><p>বাম নিলয় অক্সিজেনসমৃদ্ধ রক্ত সারা শরীরে পাঠায়।</p><button class="btn secondary" onclick="save('heart','হৃদপিণ্ড কীভাবে কাজ করে?')">☆ সংরক্ষণ</button></article>
+ <article class="article"><span class="pill">উদ্ভিদ</span><h2>উদ্ভিদ কীভাবে খাদ্য তৈরি করে?</h2><p>সবুজ উদ্ভিদ সালোকসংশ্লেষণ প্রক্রিয়ায় সূর্যের আলো, পানি ও কার্বন ডাই-অক্সাইড ব্যবহার করে খাদ্য তৈরি করে। পাতার ক্লোরোফিল আলো শোষণ করতে সাহায্য করে। এ সময় অক্সিজেনও উৎপন্ন হয়।</p><button class="btn secondary" onclick="save('plant','উদ্ভিদ কীভাবে খাদ্য তৈরি করে?')">☆ সংরক্ষণ</button></article>
+ <article class="article"><span class="pill">পদার্থবিজ্ঞান</span><h2>আলো কী?</h2><p>আলো এক ধরনের শক্তি, যা আমাদের বস্তু দেখতে সাহায্য করে। আলো সাধারণত সরলরেখায় চলাচল করে। আলো কোনো পৃষ্ঠে পড়ে ফিরে এলে তাকে প্রতিফলন বলে।</p><button class="btn secondary" onclick="save('light','আলো কী?')">☆ সংরক্ষণ</button></article>
+ <article class="article"><span class="pill">মহাকাশ</span><h2>পৃথিবী কেন সূর্যের চারদিকে ঘোরে?</h2><p>সূর্যের মহাকর্ষীয় আকর্ষণ পৃথিবীকে কক্ষপথে ধরে রাখে। পৃথিবী সূর্যকে একবার প্রদক্ষিণ করতে প্রায় ৩৬৫ দিন ৬ ঘণ্টা সময় নেয়।</p><button class="btn secondary" onclick="save('earth','পৃথিবী কেন সূর্যের চারদিকে ঘোরে?')">☆ সংরক্ষণ</button></article>
+</section>
+<section id="tech" class="page hide">
+ <div class="section-title"><h2>💻 প্রযুক্তির দুনিয়া</h2></div>
+ <article class="article"><span class="pill">কম্পিউটার</span><h2>কম্পিউটার কী?</h2><p>কম্পিউটার একটি ইলেকট্রনিক যন্ত্র, যা নির্দেশনা অনুযায়ী তথ্য গ্রহণ, প্রক্রিয়াকরণ, সংরক্ষণ এবং ফলাফল প্রদর্শন করে।</p><button class="btn secondary" onclick="save('computer','কম্পিউটার কী?')">☆ সংরক্ষণ</button></article>
+ <article class="article"><span class="pill">ইন্টারনেট</span><h2>ইন্টারনেট কীভাবে কাজে লাগে?</h2><p>ইন্টারনেট হলো বিশ্বজুড়ে সংযুক্ত কম্পিউটার নেটওয়ার্কের ব্যবস্থা। এর মাধ্যমে তথ্য খোঁজা, শেখা ও যোগাযোগ করা যায়। অচেনা লিংক, পাসওয়ার্ড চাওয়া বার্তা এবং ব্যক্তিগত তথ্য শেয়ার করার বিষয়ে সতর্ক থাকতে হবে।</p><button class="btn secondary" onclick="save('internet','ইন্টারনেট কীভাবে কাজে লাগে?')">☆ সংরক্ষণ</button></article>
+ <article class="article"><span class="pill">কৃত্রিম বুদ্ধিমত্তা</span><h2>AI বা কৃত্রিম বুদ্ধিমত্তা কী?</h2><p>কৃত্রিম বুদ্ধিমত্তা (AI) হলো এমন প্রযুক্তি, যার মাধ্যমে কম্পিউটার ভাষা বোঝা, ছবি শনাক্ত করা বা তথ্য থেকে অনুমান করার মতো কাজ করতে পারে। AI-এর উত্তর সবসময় সঠিক নাও হতে পারে, তাই গুরুত্বপূর্ণ তথ্য যাচাই করা দরকার।</p><button class="btn secondary" onclick="save('ai','AI বা কৃত্রিম বুদ্ধিমত্তা কী?')">☆ সংরক্ষণ</button></article>
+</section>
+<section id="projects" class="page hide">
+ <div class="section-title"><h2>🧪 সহজ বিজ্ঞান প্রজেক্ট</h2></div>
+ <article class="article"><span class="pill">নিরাপদ পর্যবেক্ষণ</span><h2>ছায়ার দৈর্ঘ্য পর্যবেক্ষণ</h2><p><b>যা লাগবে:</b> একটি পেন্সিল, কাগজ, স্কেল ও সূর্যের আলো পাওয়া নিরাপদ জায়গা।</p><p><b>যেভাবে করবে:</b> কাগজে পেন্সিলটি সোজা ধরে তার ছায়ার অবস্থান চিহ্নিত করো। কিছুক্ষণ পর আবার ছায়া মাপো। সময়ের সঙ্গে ছায়ার দৈর্ঘ্য ও দিক কীভাবে বদলায় তা লিখে রাখো।</p><p><b>যা শিখবে:</b> পৃথিবীর ঘূর্ণনের কারণে সূর্যের আপাত অবস্থান বদলায়, তাই ছায়ারও পরিবর্তন হয়। সরাসরি সূর্যের দিকে তাকাবে না।</p><button class="btn secondary" onclick="save('shadow','ছায়ার দৈর্ঘ্য পর্যবেক্ষণ')">☆ সংরক্ষণ</button></article>
+ <article class="article"><span class="pill">পরিবেশ বিজ্ঞান</span><h2>বীজের অঙ্কুরোদ্গম পর্যবেক্ষণ</h2><p><b>যা লাগবে:</b> কয়েকটি মুগডাল, তুলা, পানি ও স্বচ্ছ পাত্র।</p><p><b>যেভাবে করবে:</b> পাত্রে ভেজা তুলার ওপর ডাল রাখো। তুলা আর্দ্র রাখবে, কিন্তু পানিতে ডুবিয়ে রাখবে না। প্রতিদিন পরিবর্তন পর্যবেক্ষণ করো।</p><p><b>যা শিখবে:</b> বীজ থেকে নতুন চারা গজানোর প্রাথমিক ধাপ।</p><button class="btn secondary" onclick="save('seed','বীজের অঙ্কুরোদ্গম পর্যবেক্ষণ')">☆ সংরক্ষণ</button></article>
+ <p class="muted">নিরাপত্তা: আগুন, বিদ্যুৎ, ধারালো বস্তু বা অজানা রাসায়নিক ব্যবহার করে কোনো পরীক্ষা করবে না। প্রয়োজন হলে বড়দের সাহায্য নেবে।</p>
+</section>
+<section id="quiz" class="page hide">
+ <div class="section-title"><h2>🧠 বিজ্ঞান কুইজ</h2><span class="pill" id="progress">প্রশ্ন ১/১০</span></div>
+ <div class="article"><div class="quiz-q" id="question"></div><div id="options"></div><div id="feedback" class="feedback hide" aria-live="polite"></div><div class="section-title"><span id="score" class="muted">স্কোর: ০</span><button class="btn" id="next" disabled>পরের প্রশ্ন</button></div></div>
+</section>
+<section id="saved" class="page hide">
+ <div class="section-title"><h2>⭐ তোমার সংরক্ষিত বিষয়</h2></div><div id="savedList"></div>
+</section>
+</main>
+<footer>Science World · শেখার জন্য তৈরি একটি বিনামূল্যের নমুনা ওয়েব অ্যাপ</footer>
+<script>
+const pages=['home','science','tech','projects','quiz','saved'];
+function go(id){pages.forEach(p=>document.getElementById(p).classList.toggle('hide',p!==id));document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.page===id));if(id==='saved')renderSaved();if(id==='quiz')showQuestion();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+function getSaved(){try{return JSON.parse(localStorage.getItem('sw_saved')||'[]')}catch(e){return []}}
+function save(id,title){let a=getSaved();if(!a.some(x=>x.id===id)){a.push({id,title});localStorage.setItem('sw_saved',JSON.stringify(a))}alert('সংরক্ষিত হয়েছে!')}
+function renderSaved(){let a=getSaved(),el=document.getElementById('savedList');el.innerHTML='';if(!a.length){el.innerHTML='<div class="article muted">এখনো কোনো বিষয় সংরক্ষণ করোনি। বিজ্ঞান বা প্রযুক্তি বিভাগ থেকে ☆ সংরক্ষণ চাপো।</div>';return}a.forEach(x=>{let d=document.createElement('div');d.className='article';let h=document.createElement('b');h.textContent=x.title;let btn=document.createElement('button');btn.className='btn secondary';btn.textContent='সংরক্ষণ থেকে বাদ দাও';btn.style.marginLeft='12px';btn.onclick=()=>{localStorage.setItem('sw_saved',JSON.stringify(getSaved().filter(y=>y.id!==x.id)));renderSaved()};d.append(h,btn);el.append(d)})}
+const qs=[
+['মানুষের হৃদপিণ্ডে কয়টি প্রকোষ্ঠ থাকে?',['২টি','৩টি','৪টি','৫টি'],2,'মানুষের হৃদপিণ্ডে চারটি প্রকোষ্ঠ থাকে।'],
+['উদ্ভিদ খাদ্য তৈরির সময় কোন গ্যাস গ্রহণ করে?',['অক্সিজেন','কার্বন ডাই-অক্সাইড','নাইট্রোজেন','হাইড্রোজেন'],1,'সালোকসংশ্লেষণে উদ্ভিদ কার্বন ডাই-অক্সাইড গ্রহণ করে।'],
+['মানবদেহের সবচেয়ে বড় অঙ্গ কোনটি?',['হৃদপিণ্ড','যকৃত','ত্বক','ফুসফুস'],2,'ত্বক মানবদেহের সবচেয়ে বড় অঙ্গ।'],
+['পৃথিবী সূর্যকে একবার ঘুরতে প্রায় কত সময় নেয়?',['২৪ ঘণ্টা','৩০ দিন','৩৬৫ দিন','১২ ঘণ্টা'],2,'প্রায় ৩৬৫ দিন ৬ ঘণ্টা।'],
+['কম্পিউটারের CPU-কে কী বলা হয়?',['কম্পিউটারের মস্তিষ্ক','মনিটর','মাউস','প্রিন্টার'],0,'CPU নির্দেশনা প্রক্রিয়াকরণ করে, তাই একে কম্পিউটারের মস্তিষ্ক বলা হয়।'],
+['AI-এর পূর্ণরূপ কী?',['Automatic Internet','Artificial Intelligence','Applied Information','Advanced Input'],1,'AI-এর পূর্ণরূপ Artificial Intelligence।'],
+['আলো সাধারণত কোন পথে চলে?',['বৃত্তাকার','সরলরেখায়','ঢেউখেলানো পথে','এলোমেলো পথে'],1,'সমসত্ত্ব মাধ্যমে আলো সরলরেখায় চলে।'],
+['উদ্ভিদের পাতায় সবুজ রঙের জন্য দায়ী কী?',['হিমোগ্লোবিন','ক্লোরোফিল','ক্যালসিয়াম','প্রোটিন'],1,'ক্লোরোফিল পাতাকে সবুজ দেখায় এবং আলো শোষণ করে।'],
+['ইন্টারনেট কী?',['একটি একক কম্পিউটার','বিশ্বব্যাপী নেটওয়ার্ক','একটি গেম','একটি কীবোর্ড'],1,'ইন্টারনেট বিশ্বজুড়ে সংযুক্ত নেটওয়ার্কের ব্যবস্থা।'],
+['বীজ থেকে চারা গজানোর প্রক্রিয়াকে কী বলে?',['পরাগায়ন','শ্বসন','অঙ্কুরোদ্গম','বাষ্পীভবন'],2,'এ প্রক্রিয়াকে অঙ্কুরোদ্গম বলে।']
+];
+let qi=0,points=0,answered=false;
+function showQuestion(){if(document.getElementById('quiz').classList.contains('hide'))return;let q=qs[qi];document.getElementById('progress').textContent=`প্রশ্ন ${qi+1}/${qs.length}`;document.getElementById('question').textContent=q[0];document.getElementById('score').textContent=`স্কোর: ${points}`;document.getElementById('feedback').classList.add('hide');document.getElementById('next').disabled=true;document.getElementById('next').textContent=qi===qs.length-1?'আবার শুরু':'পরের প্রশ্ন';answered=false;let el=document.getElementById('options');el.innerHTML='';q[1].forEach((v,i)=>{let b=document.createElement('button');b.className='option';b.textContent=String.fromCharCode(0x0995+i)+'. '+v;b.onclick=()=>answer(i);el.append(b)})}
+function answer(i){if(answered)return;answered=true;let q=qs[qi],ok=i===q[2];if(ok)points++;document.querySelectorAll('.option').forEach((b,j)=>{b.disabled=true;if(j===q[2])b.style.borderColor='#29945b';if(j===i&&!ok)b.style.borderColor='#d45b5b'});let f=document.getElementById('feedback');f.textContent=(ok?'সঠিক উত্তর! ':'সঠিক উত্তর: '+q[1][q[2]]+'. ')+q[3];f.classList.remove('hide');document.getElementById('score').textContent=`স্কোর: ${points}`;document.getElementById('next').disabled=false}
+document.getElementById('next').onclick=()=>{if(qi===qs.length-1){alert(`কুইজ শেষ! তোমার স্কোর ${points}/${qs.length}`);qi=0;points=0}else qi++;showQuestion()};
+</script>
+</body>
+</html>
