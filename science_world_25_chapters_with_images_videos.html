@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071426">
+<meta name="description" content="Science World — বাংলা বিজ্ঞান, প্রযুক্তি, ভিডিও, বই ও প্রজেক্ট শেখার প্ল্যাটফর্ম">
+<title>Science World | Explore, Learn & Discover</title>
+<style>
+:root{--bg:#061222;--panel:#0d2038;--panel2:#102945;--line:#1d4264;--cyan:#36dcff;--blue:#168cff;--text:#eff8ff;--muted:#a9bfd4;--green:#5ce0ad}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#123d62 0,transparent 42%),var(--bg);color:var(--text);font-family:Arial,"Noto Sans Bengali",sans-serif;line-height:1.65}
+a{color:inherit;text-decoration:none}button,input,select{font:inherit}.wrap{width:min(1160px,92%);margin:auto}
+header{position:sticky;top:0;z-index:50;background:#061222ed;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.topline{display:flex;align-items:center;gap:18px;padding:12px 0}.brand{font-size:20px;font-weight:800;white-space:nowrap;color:var(--cyan);letter-spacing:.4px}.brand span{color:white}
+.search{flex:1;display:flex;gap:8px;min-width:100px}.search input{width:100%;min-width:0;background:#102945;border:1px solid #285478;color:white;border-radius:12px;padding:11px 14px;outline:none}.search input:focus{border-color:var(--cyan);box-shadow:0 0 0 3px #36dcff20}.search button,.menu{border:0;border-radius:10px;padding:10px 14px;background:linear-gradient(100deg,#087be9,#22cfff);color:#031426;font-weight:bold;cursor:pointer}.menu{display:none;background:#102945;color:var(--cyan);border:1px solid var(--line)}
+nav{display:flex;gap:22px;padding:0 0 12px;overflow-x:auto}nav a{font-size:14px;color:var(--muted);white-space:nowrap}nav a:hover{color:var(--cyan)}
+.hero{padding:72px 0 60px;text-align:center}.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:3px;font-weight:bold}.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.25;margin:12px auto;background:linear-gradient(90deg,#fff,#54ddff);background-clip:text;-webkit-background-clip:text;color:transparent}.hero p{max-width:700px;margin:0 auto 24px;color:var(--muted)}.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.btn{display:inline-block;border:1px solid var(--cyan);border-radius:10px;padding:10px 18px;background:linear-gradient(100deg,#087be9,#22cfff);color:#031426;font-weight:bold;cursor:pointer}.btn.secondary{background:transparent;color:var(--cyan)}
+.quick{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:0 auto 30px}.quick a{padding:14px;background:#0d2038;border:1px solid var(--line);border-radius:13px;text-align:center;color:var(--muted)}.quick b{display:block;color:var(--cyan);font-size:20px}
+section{padding:36px 0;scroll-margin-top:120px}.heading{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:18px}.heading h2{font-size:25px;color:var(--cyan);margin:0}.heading p{color:var(--muted);font-size:13px;margin:3px 0 0}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.chip{background:#102945;border:1px solid var(--line);color:var(--muted);border-radius:30px;padding:7px 13px;cursor:pointer}.chip.active,.chip:hover{color:#061222;background:var(--cyan);border-color:var(--cyan)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.card{overflow:hidden;background:linear-gradient(145deg,#102945,#0a1a2e);border:1px solid var(--line);border-radius:15px;transition:.2s}.card:hover{transform:translateY(-4px);border-color:var(--cyan);box-shadow:0 12px 30px #00101f80}.thumb{height:155px;position:relative;background:linear-gradient(135deg,#123b5c,#0b1b30);display:grid;place-items:center;overflow:hidden}.thumb img{width:100%;height:100%;object-fit:cover;display:block}.thumb .emoji{font-size:55px;filter:drop-shadow(0 0 12px #36dcff66)}.play{position:absolute;inset:auto auto 12px 12px;background:#061222dc;border:1px solid #36dcff80;color:var(--cyan);border-radius:30px;padding:5px 11px;font-size:12px}.body{padding:15px}.body h3{margin:0 0 6px;font-size:17px}.body p{margin:0;color:var(--muted);font-size:13px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.tag{font-size:11px;color:var(--cyan);border:1px solid #245478;border-radius:20px;padding:3px 8px}.card .link{display:inline-block;margin-top:12px;color:var(--cyan);font-size:13px;font-weight:bold}
+.feature{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center;background:linear-gradient(120deg,#0d2743,#0a192c);border:1px solid var(--line);padding:22px;border-radius:18px}.feature h3{font-size:23px;margin:5px 0}.feature p{color:var(--muted)}.feature img{width:100%;height:220px;object-fit:cover;border-radius:12px}
+.bookrow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.book{background:#102945;border:1px solid var(--line);border-radius:13px;padding:17px;text-align:center}.book strong{display:block;color:var(--cyan);font-size:22px}.book small{color:var(--muted)}
+.quizbox{max-width:680px;margin:auto;padding:22px;background:#102945;border:1px solid var(--line);border-radius:16px}.quizbox h3{margin-top:0}.answer{display:block;width:100%;text-align:left;padding:11px;margin:8px 0;border-radius:9px;border:1px solid #315879;background:#0a1b30;color:white;cursor:pointer}.answer:hover{border-color:var(--cyan)}#feedback{color:var(--green);min-height:28px}
+.about{text-align:center;max-width:720px;margin:auto;color:var(--muted)}
+.empty{display:none;color:var(--muted);text-align:center;padding:22px;border:1px dashed var(--line);border-radius:12px}
+footer{margin-top:35px;padding:25px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px}
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bookrow{grid-template-columns:repeat(3,1fr)}.feature{grid-template-columns:1fr}.feature img{height:180px}}
+@media(max-width:600px){.topline{flex-wrap:wrap}.brand{font-size:17px}.search{order:3;flex-basis:100%}.menu{display:block}nav{display:none;flex-direction:column;gap:12px;padding:0 0 14px}nav.open{display:flex}.hero{padding:48px 0}.quick{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.bookrow{grid-template-columns:repeat(2,1fr)}.heading{display:block}.heading p{margin-top:4px}}
+
+.chapter-library{margin-top:34px;padding-top:26px;border-top:1px solid var(--line)}
+.chapter-card .thumb{height:92px}
+.chapter-card .thumb .emoji{font-size:42px}
+.chapter-card .body h3{margin-top:8px}
+
+.lesson-details{margin:0 14px 15px;border:1px solid #245478;border-radius:11px;background:#071a2d;overflow:hidden}
+.lesson-details summary{cursor:pointer;padding:10px 12px;color:var(--cyan);font-weight:700;font-size:13px;list-style:none}
+.lesson-details summary::-webkit-details-marker{display:none}
+.lesson-details summary:after{content:"＋";float:right}
+.lesson-details[open] summary:after{content:"−"}
+.lesson-content{padding:0 13px 13px;color:var(--muted);font-size:13px}
+.lesson-content h4{color:#eaf8ff;font-size:13px;margin:13px 0 4px}
+.lesson-content p{margin:0}
+.lesson-content ol{padding-left:20px;margin:5px 0}
+.lesson-content li{margin:4px 0}
+
+.chapter-card .thumb{height:155px}
+.chapter-card .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.chapter-card .thumb .play{position:absolute;left:10px;bottom:10px;background:#061222dc;border:1px solid #36dcff80;color:var(--cyan);border-radius:20px;padding:4px 9px;font-size:11px}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <div class="topline">
+   <a class="brand" href="#">⚛ <span>SCIENCE</span> WORLD</a>
+   <form class="search" id="searchForm" role="search">
+    <input id="searchInput" type="search" placeholder="বই, অধ্যায়, ভিডিও, ছবি বা প্রজেক্ট খুঁজুন..." aria-label="সবকিছু খুঁজুন">
+    <button type="submit">খুঁজুন</button>
+   </form>
+   <button class="menu" id="menuBtn" aria-expanded="false">☰</button>
+  </div>
+  <nav id="nav">
+   <a href="#">হোম</a><a href="#topics">বিজ্ঞান পাঠ</a><a href="#videos">ভিডিও</a><a href="#projects">প্রজেক্ট</a><a href="#advanced">উন্নত বিজ্ঞান</a><a href="#books">বই</a><a href="#quiz">কুইজ</a><a href="#about">About Me</a>
+  </nav>
+ </div>
+</header>
+
+<main class="wrap">
+ <div class="hero">
+  <div class="eyebrow">LEARN • EXPLORE • DISCOVER</div>
+  <h1>বিজ্ঞানের অসীম জগতে স্বাগতম!</h1>
+  <p>পড়ুন, ছবি দেখুন, ভিডিও থেকে শিখুন এবং নিজে বিজ্ঞান প্রজেক্ট তৈরি করুন। বিজ্ঞান শেখা হোক আনন্দের!</p>
+  <div class="actions"><a class="btn" href="#topics">শেখা শুরু করুন</a><a class="btn secondary" href="#projects">প্রজেক্ট দেখুন</a></div>
+ </div>
+
+ <div class="quick">
+  <a href="#topics"><b>📚</b>বিজ্ঞান পাঠ</a><a href="#videos"><b>▶️</b>ভিডিও ক্লাস</a><a href="#projects"><b>🧪</b>প্রজেক্ট</a><a href="#advanced"><b>🚀</b>উন্নত বিজ্ঞান</a><a href="#books"><b>📖</b>শ্রেণির বই</a>
+ </div>
+
+ <section id="topics" class="searchable">
+  <div class="heading"><div><h2>🔬 বিজ্ঞান ও প্রযুক্তির পাঠ</h2><p>ছবি, সহজ ব্যাখ্যা ও শেখার উপকরণসহ বিভিন্ন বিষয়</p></div></div>
+  <div class="filters" data-filter-group="topics">
+   <button class="chip active" data-filter="all">সব</button><button class="chip" data-filter="biology">জীববিজ্ঞান</button><button class="chip" data-filter="space">মহাকাশ</button><button class="chip" data-filter="technology">প্রযুক্তি</button><button class="chip" data-filter="physics">পদার্থবিজ্ঞান</button><button class="chip" data-filter="chemistry">রসায়ন</button>
+  </div>
+  <div class="grid" id="topicGrid">
+   <article class="card searchable-card" data-category="biology" data-search="মানবদেহ হৃদপিণ্ড রক্ত ফুসফুস biology human body">
+    <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=800" alt="মানবদেহের চিকিৎসাবিজ্ঞান বিষয়ক ছবি"></div><div class="body"><h3>মানবদেহ</h3><p>হৃদপিণ্ড, রক্ত, ফুসফুস, মস্তিষ্ক ও অঙ্গপ্রত্যঙ্গের কাজ জানুন।</p><div class="meta"><span class="tag">জীববিজ্ঞান</span><span class="tag">ছবিসহ পাঠ</span></div><a class="link" href="https://www.youtube.com/results?search_query=মানবদেহ+বাংলা+শিক্ষামূলক" target="_blank" rel="noopener">ভিডিও ও আরও শেখা →</a></div>
+   </article>
+   <article class="card searchable-card" data-category="space" data-search="মহাকাশ গ্রহ নক্ষত্র সৌরজগৎ space planets">
+    <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800" alt="মহাকাশ ও নক্ষত্র"></div><div class="body"><h3>মহাকাশ ও সৌরজগৎ</h3><p>গ্রহ, উপগ্রহ, নক্ষত্র, ছায়াপথ ও মহাবিশ্ব সম্পর্কে জানুন।</p><div class="meta"><span class="tag">মহাকাশ</span><span class="tag">ছবিসহ পাঠ</span></div><a class="link" href="https://www.youtube.com/results?search_query=সৌরজগৎ+বাংলা+শিক্ষামূলক" target="_blank" rel="noopener">ভিডিও ও আরও শেখা →</a></div>
+   </article>
+   <article class="card searchable-card" data-category="technology" data-search="কৃত্রিম বুদ্ধিমত্তা AI রোবট robot technology">
+    <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800" alt="রোবট প্রযুক্তি"></div><div class="body"><h3>রোবট ও কৃত্রিম বুদ্ধিমত্তা</h3><p>AI কীভাবে কাজ করে এবং রোবট কোথায় ব্যবহৃত হয় জানুন।</p><div class="meta"><span class="tag">প্রযুক্তি</span><span class="tag">AI</span></div><a class="link" href="https://www.youtube.com/results?search_query=AI+robotics+বাংলা" target="_blank" rel="noopener">ভিডিও ও আরও শেখা →</a></div>
+   </article>
+   <article class="card searchable-card" data-category="physics" data-search="পদার্থবিজ্ঞান আলো বল শক্তি বিদ্যুৎ physics">
+    <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800" alt="পদার্থবিজ্ঞানের সূত্র"></div><div class="body"><h3>পদার্থবিজ্ঞান</h3><p>বল, গতি, আলো, শব্দ, বিদ্যুৎ ও শক্তির ধারণা শিখুন।</p><div class="meta"><span class="tag">পদার্থবিজ্ঞান</span></div><a class="link" href="https://www.youtube.com/results?search_query=পদার্থবিজ্ঞান+বাংলা+ক্লাস" target="_blank" rel="noopener">ভিডিও ও আরও শেখা →</a></div>
+   </article>
+   <article class="card searchable-card" data-category="chemistry" data-search="রসায়ন পরমাণু অণু মৌল chemistry">
+    <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800" alt="বিজ্ঞান গবেষণাগার"></div><div class="body"><h3>রসায়ন</h3><p>পরমাণু, অণু, মৌল, যৌগ ও রাসায়নিক পরিবর্তন জানুন।</p><div class="meta"><span class="tag">রসায়ন</span><span class="tag">পরীক্ষা</span></div><a class="link" href="https://www.youtube.com/results?search_query=রসায়ন+বাংলা+শিক্ষামূলক" target="_blank" rel="noopener">ভিডিও ও আরও শেখা →</a></div>
+   </article>
+   <article class="card searchable-card" data-category="biology" data-search="উদ্ভিদ প্রাণী কোষ জীববিজ্ঞান biology">
+    <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800" alt="সবুজ বন ও উদ্ভিদ"></div><div class="body"><h3>উদ্ভিদ ও প্রাণিজগৎ</h3><p>কোষ, উদ্ভিদের খাদ্য তৈরি, প্রাণীর বৈশিষ্ট্য ও পরিবেশ জানুন।</p><div class="meta"><span class="tag">জীববিজ্ঞান</span></div><a class="link" href="https://www.youtube.com/results?search_query=জীববিজ্ঞান+বাংলা" target="_blank" rel="noopener">ভিডিও ও আরও শেখা →</a></div>
+   </article>
+  </div>
+
+  <div class="chapter-library">
+   <div class="heading"><div><h2>📖 অধ্যায়ভিত্তিক পাঠাগার — ২৫টি অধ্যায়</h2><p>জীববিজ্ঞান, পদার্থবিজ্ঞান, রসায়ন, মহাকাশ, পরিবেশ ও প্রযুক্তি মিলিয়ে ২৫টি অধ্যায়</p></div></div>
+
+   <div class="filters chapter-filters" id="chapterFilters">
+    <button class="chip active" data-chapter-filter="all">সব অধ্যায়</button>
+    <button class="chip" data-chapter-filter="biology">জীববিজ্ঞান</button>
+    <button class="chip" data-chapter-filter="physics">পদার্থবিজ্ঞান</button>
+    <button class="chip" data-chapter-filter="chemistry">রসায়ন</button>
+    <button class="chip" data-chapter-filter="earth">পৃথিবী ও পরিবেশ</button>
+    <button class="chip" data-chapter-filter="space">মহাকাশ</button>
+    <button class="chip" data-chapter-filter="technology">প্রযুক্তি</button>
+   </div>
+   <div class="grid" id="chapterGrid">
+    <article class="card searchable-card chapter-card" data-category="biology" data-search="জীববিজ্ঞান ১. জীবনের বৈশিষ্ট্য ও শ্রেণিবিন্যাস জীব কী, জীবের সাধারণ বৈশিষ্ট্য এবং জীবজগতকে বিভিন্ন দলে ভাগ করার ধারণা।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=900" alt="জীববিজ্ঞান গবেষণা"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">জীববিজ্ঞান</span><h3>১. জীবনের বৈশিষ্ট্য ও শ্রেণিবিন্যাস</h3><p>জীব কী, জীবের সাধারণ বৈশিষ্ট্য এবং জীবজগতকে বিভিন্ন দলে ভাগ করার ধারণা।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A7.%20%E0%A6%9C%E0%A7%80%E0%A6%AC%E0%A6%A8%E0%A7%87%E0%A6%B0%20%E0%A6%AC%E0%A7%88%E0%A6%B6%E0%A6%BF%E0%A6%B7%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%AF%20%E0%A6%93%20%E0%A6%B6%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%A3%E0%A6%BF%E0%A6%AC%E0%A6%BF%E0%A6%A8%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B8%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>জীব হলো এমন সত্তা যা সাধারণত কোষ দিয়ে গঠিত, পুষ্টি গ্রহণ করে, শ্বসন করে, বৃদ্ধি পায়, উদ্দীপনায় সাড়া দেয় এবং বংশবিস্তার করতে পারে। জীবকে উদ্ভিদ, প্রাণী, ছত্রাক ও অণুজীবসহ বিভিন্ন দলে অধ্যয়ন করা হয়।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>জীবের প্রধান বৈশিষ্ট্য: কোষীয় গঠন, বিপাক, বৃদ্ধি, প্রজনন, উদ্দীপনায় সাড়া ও পরিবেশের সঙ্গে অভিযোজন। ভাইরাসকে জীব ও জড়ের মধ্যবর্তী বৈশিষ্ট্যসম্পন্ন বলে আলোচনা করা হয়; এটি কোষ দিয়ে গঠিত নয়।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>কোষ; বিপাক; প্রজনন; অভিযোজন</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>জীবের দুটি বৈশিষ্ট্য লেখো।</li><li>জীবদের শ্রেণিবিন্যাসের একটি সুবিধা কী?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>বৃদ্ধি ও শ্বসন।</li><li>জীবদের সাদৃশ্য-অসাদৃশ্য বুঝে সহজে অধ্যয়ন ও শনাক্ত করা যায়।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="biology" data-search="জীববিজ্ঞান ২. কোষ: জীবনের গঠন ও কাজের একক কোষঝিল্লি, সাইটোপ্লাজম, নিউক্লিয়াস এবং উদ্ভিদ ও প্রাণিকোষের পার্থক্য।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900" alt="উদ্ভিদ ও প্রকৃতি"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">জীববিজ্ঞান</span><h3>২. কোষ: জীবনের গঠন ও কাজের একক</h3><p>কোষঝিল্লি, সাইটোপ্লাজম, নিউক্লিয়াস এবং উদ্ভিদ ও প্রাণিকোষের পার্থক্য।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A8.%20%E0%A6%95%E0%A7%8B%E0%A6%B7%3A%20%E0%A6%9C%E0%A7%80%E0%A6%AC%E0%A6%A8%E0%A7%87%E0%A6%B0%20%E0%A6%97%E0%A6%A0%E0%A6%A8%20%E0%A6%93%20%E0%A6%95%E0%A6%BE%E0%A6%9C%E0%A7%87%E0%A6%B0%20%E0%A6%8F%E0%A6%95%E0%A6%95%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>কোষ হলো জীবদেহের গঠন ও কাজের মৌলিক একক। এককোষী জীব একটি কোষ দিয়ে এবং বহুকোষী জীব অনেক কোষ দিয়ে গঠিত।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>কোষঝিল্লি কোষে পদার্থের প্রবেশ-নির্গমন নিয়ন্ত্রণ করে। সাইটোপ্লাজমে বহু কাজ ঘটে। নিউক্লিয়াসে বংশগত তথ্য থাকে। উদ্ভিদকোষে সাধারণত কোষপ্রাচীর, ক্লোরোপ্লাস্ট ও বড় রসধানী থাকে; প্রাণিকোষে ক্লোরোপ্লাস্ট থাকে না।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>কোষঝিল্লি; নিউক্লিয়াস; সাইটোপ্লাজম; ক্লোরোপ্লাস্ট</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>কোষকে জীবনের মৌলিক একক বলা হয় কেন?</li><li>উদ্ভিদকোষের দুটি বিশেষ বৈশিষ্ট্য লেখো।</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>জীবের গঠন ও জীবনক্রিয়ার মৌলিক কাজ কোষেই সম্পন্ন হয়।</li><li>কোষপ্রাচীর ও ক্লোরোপ্লাস্ট।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="biology" data-search="জীববিজ্ঞান ৩. মানবদেহের অঙ্গতন্ত্র পরিপাক, শ্বসন, রক্তসঞ্চালন, রেচন ও স্নায়ুতন্ত্রের পরিচয়।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900" alt="কোষ ও গবেষণাগার"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">জীববিজ্ঞান</span><h3>৩. মানবদেহের অঙ্গতন্ত্র</h3><p>পরিপাক, শ্বসন, রক্তসঞ্চালন, রেচন ও স্নায়ুতন্ত্রের পরিচয়।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A9.%20%E0%A6%AE%E0%A6%BE%E0%A6%A8%E0%A6%AC%E0%A6%A6%E0%A7%87%E0%A6%B9%E0%A7%87%E0%A6%B0%20%E0%A6%85%E0%A6%99%E0%A7%8D%E0%A6%97%E0%A6%A4%E0%A6%A8%E0%A7%8D%E0%A6%A4%E0%A7%8D%E0%A6%B0%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>মানবদেহে বিভিন্ন অঙ্গ একসঙ্গে কাজ করে অঙ্গতন্ত্র তৈরি করে। যেমন পরিপাকতন্ত্র খাদ্য ভাঙে, শ্বসনতন্ত্র গ্যাসের আদান-প্রদান করে, রক্তসঞ্চালনতন্ত্র পদার্থ পরিবহন করে।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>প্রধান অঙ্গতন্ত্র: পরিপাক, শ্বসন, রক্তসঞ্চালন, রেচন, স্নায়ু, কঙ্কাল ও পেশিতন্ত্র। প্রতিটি তন্ত্রের কাজ আলাদা হলেও তারা পরস্পর নির্ভরশীল।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>অঙ্গ; অঙ্গতন্ত্র; সমন্বয়</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>অঙ্গতন্ত্র কী?</li><li>রক্তসঞ্চালনতন্ত্রের প্রধান কাজ কী?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>একাধিক অঙ্গের সমন্বিত কার্যকরী ব্যবস্থা।</li><li>অক্সিজেন, পুষ্টি ও অন্যান্য পদার্থ দেহের বিভিন্ন অংশে পরিবহন করা।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="biology" data-search="জীববিজ্ঞান ৪. খাদ্য, পুষ্টি ও পরিপাক খাদ্যের উপাদান, সুষম খাদ্য, এনজাইম এবং খাদ্য হজম ও শোষণ।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=900" alt="মানবদেহ ও জীববিজ্ঞান"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">জীববিজ্ঞান</span><h3>৪. খাদ্য, পুষ্টি ও পরিপাক</h3><p>খাদ্যের উপাদান, সুষম খাদ্য, এনজাইম এবং খাদ্য হজম ও শোষণ।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%AA.%20%E0%A6%96%E0%A6%BE%E0%A6%A6%E0%A7%8D%E0%A6%AF%2C%20%E0%A6%AA%E0%A7%81%E0%A6%B7%E0%A7%8D%E0%A6%9F%E0%A6%BF%20%E0%A6%93%20%E0%A6%AA%E0%A6%B0%E0%A6%BF%E0%A6%AA%E0%A6%BE%E0%A6%95%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>খাদ্য দেহকে শক্তি দেয়, বৃদ্ধি ও ক্ষয়পূরণে সাহায্য করে। শর্করা, আমিষ, স্নেহ, ভিটামিন, খনিজ লবণ ও পানি গুরুত্বপূর্ণ খাদ্য উপাদান।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>সুষম খাদ্যে প্রয়োজন অনুযায়ী সব পুষ্টি উপাদান থাকে। মুখে খাদ্য চিবানো ও লালারসের কাজ শুরু হয়; পাকস্থলী ও ক্ষুদ্রান্ত্রে পরিপাক চলতে থাকে। ক্ষুদ্রান্ত্রের ভিলাই পুষ্টি শোষণের ক্ষেত্রফল বাড়ায়।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>সুষম খাদ্য; এনজাইম; পরিপাক; ভিলাই</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>সুষম খাদ্য কী?</li><li>ক্ষুদ্রান্ত্রের ভিলাইয়ের কাজ কী?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>যে খাদ্যে প্রয়োজনীয় সব পুষ্টি উপাদান সঠিক অনুপাতে থাকে।</li><li>পুষ্টি শোষণের ক্ষেত্রফল বাড়ানো।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="biology" data-search="জীববিজ্ঞান ৫. রক্ত ও রক্তসঞ্চালন রক্তের উপাদান, হৃদপিণ্ডের কাজ, রক্তনালি এবং রক্ত চলাচল।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=900" alt="জীববিজ্ঞান গবেষণা"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">জীববিজ্ঞান</span><h3>৫. রক্ত ও রক্তসঞ্চালন</h3><p>রক্তের উপাদান, হৃদপিণ্ডের কাজ, রক্তনালি এবং রক্ত চলাচল।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%AB.%20%E0%A6%B0%E0%A6%95%E0%A7%8D%E0%A6%A4%20%E0%A6%93%20%E0%A6%B0%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%B8%E0%A6%9E%E0%A7%8D%E0%A6%9A%E0%A6%BE%E0%A6%B2%E0%A6%A8%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>রক্ত একটি তরল যোজক কলা। এটি অক্সিজেন, পুষ্টি, হরমোন ও বর্জ্য পদার্থ পরিবহনে সাহায্য করে। হৃৎপিণ্ড রক্ত পাম্প করে।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>রক্তের প্রধান উপাদান প্লাজমা, লোহিত রক্তকণিকা, শ্বেত রক্তকণিকা ও অণুচক্রিকা। লোহিত কণিকার হিমোগ্লোবিন অক্সিজেন বহন করে; শ্বেত কণিকা রোগজীবাণুর বিরুদ্ধে প্রতিরোধে সাহায্য করে; অণুচক্রিকা রক্ত জমাট বাঁধায় ভূমিকা রাখে। মানুষের হৃৎপিণ্ডে চারটি প্রকোষ্ঠ।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>প্লাজমা; হিমোগ্লোবিন; ধমনি; শিরা; কৈশিকনালি</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>রক্তের দুটি কাজ লেখো।</li><li>শ্বেত রক্তকণিকার কাজ কী?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>অক্সিজেন ও পুষ্টি পরিবহন; বর্জ্য অপসারণে সহায়তা।</li><li>দেহকে রোগজীবাণুর বিরুদ্ধে রক্ষা করা।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="biology" data-search="জীববিজ্ঞান ৬. শ্বসন ও গ্যাসের আদান-প্রদান ফুসফুস, বায়ুথলি এবং কোষে শক্তি উৎপাদনের জন্য শ্বসনের ভূমিকা।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900" alt="উদ্ভিদ ও প্রকৃতি"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">জীববিজ্ঞান</span><h3>৬. শ্বসন ও গ্যাসের আদান-প্রদান</h3><p>ফুসফুস, বায়ুথলি এবং কোষে শক্তি উৎপাদনের জন্য শ্বসনের ভূমিকা।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%AC.%20%E0%A6%B6%E0%A7%8D%E0%A6%AC%E0%A6%B8%E0%A6%A8%20%E0%A6%93%20%E0%A6%97%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B8%E0%A7%87%E0%A6%B0%20%E0%A6%86%E0%A6%A6%E0%A6%BE%E0%A6%A8-%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%A6%E0%A6%BE%E0%A6%A8%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>শ্বসন হলো কোষে খাদ্য অণু ভেঙে ব্যবহারযোগ্য শক্তি মুক্ত করার প্রক্রিয়া। ফুসফুসে বায়ু থেকে অক্সিজেন রক্তে যায় এবং কার্বন ডাই-অক্সাইড রক্ত থেকে বায়ুতে আসে।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>শ্বাস নেওয়ার সময় বক্ষগহ্বর প্রসারিত হয়। ফুসফুসের বায়ুথলি বা অ্যালভিওলাইয়ের পাতলা দেয়াল ও রক্তজালিকার কারণে গ্যাসের আদান-প্রদান সহজ হয়। শ্বসন ও শ্বাস-প্রশ্বাস সম্পর্কিত, তবে এক বিষয় নয়।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>শ্বসন; অ্যালভিওলাই; অক্সিজেন; কার্বন ডাই-অক্সাইড</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>অ্যালভিওলাইয়ের কাজ কী?</li><li>কোষীয় শ্বসনে কী মুক্ত হয়?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>অক্সিজেন ও কার্বন ডাই-অক্সাইডের আদান-প্রদান।</li><li>শক্তি।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="biology" data-search="জীববিজ্ঞান ৭. উদ্ভিদের গঠন ও খাদ্য তৈরি মূল, কাণ্ড, পাতা, সালোকসংশ্লেষণ এবং উদ্ভিদের পরিবহন ব্যবস্থা।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900" alt="কোষ ও গবেষণাগার"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">জীববিজ্ঞান</span><h3>৭. উদ্ভিদের গঠন ও খাদ্য তৈরি</h3><p>মূল, কাণ্ড, পাতা, সালোকসংশ্লেষণ এবং উদ্ভিদের পরিবহন ব্যবস্থা।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%AD.%20%E0%A6%89%E0%A6%A6%E0%A7%8D%E0%A6%AD%E0%A6%BF%E0%A6%A6%E0%A7%87%E0%A6%B0%20%E0%A6%97%E0%A6%A0%E0%A6%A8%20%E0%A6%93%20%E0%A6%96%E0%A6%BE%E0%A6%A6%E0%A7%8D%E0%A6%AF%20%E0%A6%A4%E0%A7%88%E0%A6%B0%E0%A6%BF%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>উদ্ভিদের মূল পানি ও খনিজ লবণ শোষণ করে, কাণ্ড সমর্থন ও পরিবহনে সাহায্য করে, আর পাতা প্রধানত খাদ্য তৈরির কাজ করে।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>সালোকসংশ্লেষণে সবুজ উদ্ভিদ সূর্যালোকের শক্তি ব্যবহার করে পানি ও কার্বন ডাই-অক্সাইড থেকে শর্করা তৈরি করে এবং অক্সিজেন ছাড়ে। ক্লোরোফিল আলো শোষণ করে। জাইলেম পানি পরিবহন করে; ফ্লোয়েম খাদ্য পরিবহন করে।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>মূল; কাণ্ড; ক্লোরোফিল; সালোকসংশ্লেষণ; জাইলেম; ফ্লোয়েম</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>সালোকসংশ্লেষণের জন্য কী কী লাগে?</li><li>জাইলেমের কাজ কী?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>আলো, পানি, কার্বন ডাই-অক্সাইড ও ক্লোরোফিল।</li><li>মূল থেকে পানি ও খনিজ লবণ উপরের অংশে পরিবহন।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="biology" data-search="জীববিজ্ঞান ৮. বংশগতি ও DNA জিন, DNA, ক্রোমোজোম এবং বৈশিষ্ট্য এক প্রজন্ম থেকে পরের প্রজন্মে যাওয়া।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=900" alt="মানবদেহ ও জীববিজ্ঞান"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">জীববিজ্ঞান</span><h3>৮. বংশগতি ও DNA</h3><p>জিন, DNA, ক্রোমোজোম এবং বৈশিষ্ট্য এক প্রজন্ম থেকে পরের প্রজন্মে যাওয়া।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%AE.%20%E0%A6%AC%E0%A6%82%E0%A6%B6%E0%A6%97%E0%A6%A4%E0%A6%BF%20%E0%A6%93%20DNA%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>বংশগতি হলো পিতা-মাতা থেকে সন্তানের মধ্যে বৈশিষ্ট্য সঞ্চার। DNA-তে জীবের বংশগত নির্দেশনা সংরক্ষিত থাকে।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>DNA সাধারণত কোষের নিউক্লিয়াসের ক্রোমোজোমে থাকে। জিন হলো DNA-এর নির্দিষ্ট অংশ, যা কোনো বৈশিষ্ট্যের নির্দেশনায় ভূমিকা রাখে। পরিবেশও অনেক বৈশিষ্ট্যের প্রকাশে প্রভাব ফেলতে পারে।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>DNA; জিন; ক্রোমোজোম; বংশগতি</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>জিন কী?</li><li>DNA-এর প্রধান কাজ কী?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>DNA-এর নির্দিষ্ট অংশ, যা বংশগত নির্দেশনা বহন করে।</li><li>বংশগত তথ্য সংরক্ষণ ও পরবর্তী প্রজন্মে সঞ্চারে ভূমিকা রাখা।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="physics" data-search="পদার্থবিজ্ঞান ৯. পদার্থ, ভর ও আয়তন পদার্থের অবস্থা, ভর, আয়তন, ঘনত্ব এবং পরিমাপের একক।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=900" alt="বিজ্ঞান পরীক্ষাগার"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">পদার্থবিজ্ঞান</span><h3>৯. পদার্থ, ভর ও আয়তন</h3><p>পদার্থের অবস্থা, ভর, আয়তন, ঘনত্ব এবং পরিমাপের একক।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%AF.%20%E0%A6%AA%E0%A6%A6%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%A5%2C%20%E0%A6%AD%E0%A6%B0%20%E0%A6%93%20%E0%A6%86%E0%A7%9F%E0%A6%A4%E0%A6%A8%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>যার ভর আছে এবং স্থান দখল করে তাকে পদার্থ বলে। পদার্থ সাধারণত কঠিন, তরল ও গ্যাসীয় অবস্থায় দেখা যায়।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>ভর হলো বস্তুর পদার্থের পরিমাণ; SI একক কিলোগ্রাম। আয়তন হলো বস্তু যতটুকু স্থান দখল করে; SI একক ঘনমিটার। ঘনত্ব = ভর ÷ আয়তন।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>পদার্থ; ভর; আয়তন; ঘনত্ব</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>পদার্থের সংজ্ঞা দাও।</li><li>ঘনত্বের সূত্র কী?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>যার ভর আছে ও স্থান দখল করে।</li><li>ঘনত্ব = ভর/আয়তন।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="physics" data-search="পদার্থবিজ্ঞান ১০. বল ও গতি বল, সরণ, বেগ, ত্বরণ এবং দৈনন্দিন জীবনে গতির উদাহরণ।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1517074859227-2f4d7c1b3c6e?w=900" alt="বৈদ্যুতিক বর্তনী"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">পদার্থবিজ্ঞান</span><h3>১০. বল ও গতি</h3><p>বল, সরণ, বেগ, ত্বরণ এবং দৈনন্দিন জীবনে গতির উদাহরণ।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A7%E0%A7%A6.%20%E0%A6%AC%E0%A6%B2%20%E0%A6%93%20%E0%A6%97%E0%A6%A4%E0%A6%BF%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>বল হলো ধাক্কা বা টান, যা বস্তুর গতির অবস্থা বা আকৃতি পরিবর্তন করতে পারে। গতি বোঝাতে দূরত্ব, সরণ, দ্রুতি ও বেগের ধারণা ব্যবহৃত হয়।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>দ্রুতি = দূরত্ব/সময়। বেগে দিকও থাকে। ত্বরণ হলো সময়ের সঙ্গে বেগ পরিবর্তনের হার। নিউটনের গতিসূত্র বল ও গতির সম্পর্ক ব্যাখ্যা করে।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>বল; দূরত্ব; বেগ; ত্বরণ</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>বল কী করতে পারে?</li><li>দ্রুতির সূত্র লেখো।</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>বস্তুর গতি বা আকৃতি পরিবর্তন করতে পারে।</li><li>দ্রুতি = অতিক্রান্ত দূরত্ব ÷ সময়।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="physics" data-search="পদার্থবিজ্ঞান ১১. কাজ, শক্তি ও ক্ষমতা কাজের ধারণা, শক্তির রূপান্তর, গতিশক্তি, বিভবশক্তি ও ক্ষমতা।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=900" alt="পদার্থবিজ্ঞানের সূত্র ও ধারণা"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">পদার্থবিজ্ঞান</span><h3>১১. কাজ, শক্তি ও ক্ষমতা</h3><p>কাজের ধারণা, শক্তির রূপান্তর, গতিশক্তি, বিভবশক্তি ও ক্ষমতা।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A7%E0%A7%A7.%20%E0%A6%95%E0%A6%BE%E0%A6%9C%2C%20%E0%A6%B6%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%BF%20%E0%A6%93%20%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%AE%E0%A6%A4%E0%A6%BE%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>পদার্থবিজ্ঞানে বল প্রয়োগে বলের দিকে সরণ ঘটলে কাজ সম্পন্ন হয়। শক্তি হলো কাজ করার সামর্থ্য।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>কাজ = বল × বলের দিকে সরণ। শক্তির রূপ: গতিশক্তি, বিভবশক্তি, তাপ, আলো, রাসায়নিক ও বৈদ্যুতিক শক্তি। ক্ষমতা হলো কাজ করার হার; ক্ষমতার SI একক ওয়াট।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>কাজ; শক্তি; গতিশক্তি; বিভবশক্তি; ক্ষমতা</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>শক্তি কী?</li><li>ক্ষমতা কাকে বলে?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>কাজ করার সামর্থ্য।</li><li>একক সময়ে কাজ করার হার।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="physics" data-search="পদার্থবিজ্ঞান ১২. আলো ও প্রতিফলন আলোর সরলরেখায় চলা, প্রতিফলন, দর্পণ ও ছায়া।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=900" alt="বিজ্ঞান পরীক্ষাগার"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">পদার্থবিজ্ঞান</span><h3>১২. আলো ও প্রতিফলন</h3><p>আলোর সরলরেখায় চলা, প্রতিফলন, দর্পণ ও ছায়া।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A7%E0%A7%A8.%20%E0%A6%86%E0%A6%B2%E0%A7%8B%20%E0%A6%93%20%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%A4%E0%A6%BF%E0%A6%AB%E0%A6%B2%E0%A6%A8%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>আলো এক ধরনের শক্তি, যার সাহায্যে আমরা বস্তু দেখতে পাই। আলো সমসত্ত্ব মাধ্যমে সরলরেখায় চলে। প্রতিফলন হলো পৃষ্ঠে পড়ে আলোর ফিরে আসা।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>প্রতিফলনের সূত্র: আপতন কোণ প্রতিফলন কোণের সমান; আপতিত রশ্মি, প্রতিফলিত রশ্মি ও অভিলম্ব একই সমতলে থাকে। সমতল দর্পণে প্রতিবিম্ব সোজা, কাল্পনিক ও সমান আকারের হয়।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>আলোর রশ্মি; অভিলম্ব; আপতন কোণ; প্রতিফলন</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>প্রতিফলন কী?</li><li>সমতল দর্পণে প্রতিবিম্ব কেমন হয়?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>আলো কোনো পৃষ্ঠে পড়ে ফিরে আসা।</li><li>সোজা, কাল্পনিক ও বস্তুর সমান আকারের।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="physics" data-search="পদার্থবিজ্ঞান ১৩. শব্দ ও তরঙ্গ শব্দের উৎপত্তি, কম্পন, তরঙ্গ, প্রতিধ্বনি এবং শব্দের ব্যবহার।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1517074859227-2f4d7c1b3c6e?w=900" alt="বৈদ্যুতিক বর্তনী"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">পদার্থবিজ্ঞান</span><h3>১৩. শব্দ ও তরঙ্গ</h3><p>শব্দের উৎপত্তি, কম্পন, তরঙ্গ, প্রতিধ্বনি এবং শব্দের ব্যবহার।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A7%E0%A7%A9.%20%E0%A6%B6%E0%A6%AC%E0%A7%8D%E0%A6%A6%20%E0%A6%93%20%E0%A6%A4%E0%A6%B0%E0%A6%99%E0%A7%8D%E0%A6%97%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>শব্দ কম্পনের ফলে সৃষ্টি হয় এবং চলার জন্য বায়ু, পানি বা কঠিনের মতো মাধ্যম প্রয়োজন। শূন্যস্থানে শব্দ চলতে পারে না।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>কম্পাঙ্ক হলো প্রতি সেকেন্ডে কম্পনের সংখ্যা; একক হার্টজ। বিস্তার শব্দের তীব্রতার সঙ্গে সম্পর্কিত। প্রতিধ্বনি হলো প্রতিফলিত শব্দ আলাদা করে শোনা।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>কম্পন; তরঙ্গ; কম্পাঙ্ক; প্রতিধ্বনি</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>শূন্যস্থানে শব্দ শোনা যায় না কেন?</li><li>কম্পাঙ্কের একক কী?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>শব্দ চলার জন্য বস্তুগত মাধ্যম প্রয়োজন।</li><li>হার্টজ (Hz)।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="physics" data-search="পদার্থবিজ্ঞান ১৪. বিদ্যুৎ ও চৌম্বকত্ব বৈদ্যুতিক বর্তনী, পরিবাহী-অপরিবাহী, চুম্বক ও নিরাপদ বিদ্যুৎ ব্যবহার।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=900" alt="পদার্থবিজ্ঞানের সূত্র ও ধারণা"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">পদার্থবিজ্ঞান</span><h3>১৪. বিদ্যুৎ ও চৌম্বকত্ব</h3><p>বৈদ্যুতিক বর্তনী, পরিবাহী-অপরিবাহী, চুম্বক ও নিরাপদ বিদ্যুৎ ব্যবহার।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A7%E0%A7%AA.%20%E0%A6%AC%E0%A6%BF%E0%A6%A6%E0%A7%8D%E0%A6%AF%E0%A7%81%E0%A7%8E%20%E0%A6%93%20%E0%A6%9A%E0%A7%8C%E0%A6%AE%E0%A7%8D%E0%A6%AC%E0%A6%95%E0%A6%A4%E0%A7%8D%E0%A6%AC%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>বৈদ্যুতিক প্রবাহ হলো আধানের সুশৃঙ্খল প্রবাহ। বর্তনীতে উৎস, পরিবাহী তার ও যন্ত্র যুক্ত থাকলে বন্ধ পথে বিদ্যুৎ প্রবাহিত হতে পারে।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>কারেন্টের একক অ্যাম্পিয়ার, বিভব পার্থক্যের একক ভোল্ট, রোধের একক ওহম। চুম্বকের উত্তর ও দক্ষিণ মেরু থাকে। ঘরের বিদ্যুৎ বিপজ্জনক—কখনো খোলা তার বা মেইনস বিদ্যুৎ নিয়ে পরীক্ষা করবে না; শুধু শিক্ষক-তত্ত্বাবধানে নিরাপদ শিক্ষামূলক কিট ব্যবহার করতে হয়।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>বর্তনী; তড়িৎ প্রবাহ; ভোল্ট; অ্যাম্পিয়ার; চুম্বক</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>বন্ধ বর্তনী কী?</li><li>বিদ্যুৎ নিরাপত্তার একটি নিয়ম লেখো।</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>যে সম্পূর্ণ পথে বিদ্যুৎ প্রবাহিত হতে পারে।</li><li>ভেজা হাতে সুইচ বা বৈদ্যুতিক যন্ত্র স্পর্শ করা যাবে না।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="chemistry" data-search="রসায়ন ১৫. পরমাণু, অণু ও মৌল পরমাণুর গঠন, প্রোটন, নিউট্রন, ইলেকট্রন, অণু ও মৌলের পরিচয়।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900" alt="মাইক্রোস্কোপ ও গবেষণা"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">রসায়ন</span><h3>১৫. পরমাণু, অণু ও মৌল</h3><p>পরমাণুর গঠন, প্রোটন, নিউট্রন, ইলেকট্রন, অণু ও মৌলের পরিচয়।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A7%E0%A7%AB.%20%E0%A6%AA%E0%A6%B0%E0%A6%AE%E0%A6%BE%E0%A6%A3%E0%A7%81%2C%20%E0%A6%85%E0%A6%A3%E0%A7%81%20%E0%A6%93%20%E0%A6%AE%E0%A7%8C%E0%A6%B2%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>পরমাণু হলো কোনো মৌলের ক্ষুদ্রতম কণা যা সেই মৌলের রাসায়নিক ধর্ম বজায় রাখে। দুই বা ততোধিক পরমাণু যুক্ত হয়ে অণু গঠন করতে পারে।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>পরমাণুর কেন্দ্রে নিউক্লিয়াসে প্রোটন ও নিউট্রন থাকে; ইলেকট্রন নিউক্লিয়াসের চারপাশের অঞ্চলে থাকে। প্রোটনের সংখ্যা পারমাণবিক সংখ্যা নির্ধারণ করে। মৌল এক ধরনের পরমাণু দিয়ে গঠিত।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>পরমাণু; অণু; প্রোটন; নিউট্রন; ইলেকট্রন</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>পারমাণবিক সংখ্যা কী নির্দেশ করে?</li><li>পানির অণুতে কোন কোন মৌল আছে?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>প্রোটনের সংখ্যা।</li><li>হাইড্রোজেন ও অক্সিজেন।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="chemistry" data-search="রসায়ন ১৬. পর্যায় সারণি মৌল সাজানোর নিয়ম, পর্যায়, শ্রেণি এবং কয়েকটি গুরুত্বপূর্ণ মৌলের ব্যবহার।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=900" alt="রসায়ন গবেষণাগার"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">রসায়ন</span><h3>১৬. পর্যায় সারণি</h3><p>মৌল সাজানোর নিয়ম, পর্যায়, শ্রেণি এবং কয়েকটি গুরুত্বপূর্ণ মৌলের ব্যবহার।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A7%E0%A7%AC.%20%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A7%9F%20%E0%A6%B8%E0%A6%BE%E0%A6%B0%E0%A6%A3%E0%A6%BF%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>পর্যায় সারণিতে মৌলগুলো পারমাণবিক সংখ্যা বৃদ্ধির ক্রমে সাজানো। একই শ্রেণির মৌলগুলোর রাসায়নিক ধর্মে মিল থাকতে পারে।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>অনুভূমিক সারিকে পর্যায় এবং উল্লম্ব স্তম্ভকে শ্রেণি বলে। ধাতু সাধারণত তাপ ও বিদ্যুতের সুপরিবাহী; অধাতুর বৈশিষ্ট্য ভিন্ন। হাইড্রোজেনের অবস্থান বিশেষ।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>মৌল; পর্যায়; শ্রেণি; ধাতু; অধাতু</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>পর্যায় সারণিতে পর্যায় কোনটি?</li><li>শ্রেণি কোনটি?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>অনুভূমিক সারি।</li><li>উল্লম্ব স্তম্ভ।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="chemistry" data-search="রসায়ন ১৭. রাসায়নিক বন্ধন ও যৌগ আয়ন, ইলেকট্রন ভাগাভাগি এবং যৌগ গঠনের প্রাথমিক ধারণা।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900" alt="মাইক্রোস্কোপ ও গবেষণা"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">রসায়ন</span><h3>১৭. রাসায়নিক বন্ধন ও যৌগ</h3><p>আয়ন, ইলেকট্রন ভাগাভাগি এবং যৌগ গঠনের প্রাথমিক ধারণা।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A7%E0%A7%AD.%20%E0%A6%B0%E0%A6%BE%E0%A6%B8%E0%A6%BE%E0%A7%9F%E0%A6%A8%E0%A6%BF%E0%A6%95%20%E0%A6%AC%E0%A6%A8%E0%A7%8D%E0%A6%A7%E0%A6%A8%20%E0%A6%93%20%E0%A6%AF%E0%A7%8C%E0%A6%97%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>পরমাণু স্থিতিশীল বিন্যাস লাভের জন্য ইলেকট্রন আদান-প্রদান বা ভাগাভাগির মাধ্যমে রাসায়নিক বন্ধন গঠন করতে পারে।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>আয়নিক বন্ধনে ইলেকট্রন স্থানান্তর হয় এবং বিপরীত আধানযুক্ত আয়নের আকর্ষণ কাজ করে। সমযোজী বন্ধনে পরমাণু ইলেকট্রন ভাগাভাগি করে। সোডিয়াম ক্লোরাইড একটি আয়নিক যৌগ; পানিতে সমযোজী বন্ধন আছে।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>আয়ন; আয়নিক বন্ধন; সমযোজী বন্ধন; যৌগ</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>আয়নিক বন্ধনে কী ঘটে?</li><li>সমযোজী বন্ধনে কী ঘটে?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>ইলেকট্রন এক পরমাণু থেকে অন্য পরমাণুতে স্থানান্তরিত হয়।</li><li>পরমাণু ইলেকট্রন ভাগাভাগি করে।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="chemistry" data-search="রসায়ন ১৮. পদার্থের পরিবর্তন ও রাসায়নিক বিক্রিয়া ভৌত ও রাসায়নিক পরিবর্তনের পার্থক্য এবং বিক্রিয়ার সহজ উদাহরণ।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=900" alt="রসায়ন গবেষণাগার"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">রসায়ন</span><h3>১৮. পদার্থের পরিবর্তন ও রাসায়নিক বিক্রিয়া</h3><p>ভৌত ও রাসায়নিক পরিবর্তনের পার্থক্য এবং বিক্রিয়ার সহজ উদাহরণ।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A7%E0%A7%AE.%20%E0%A6%AA%E0%A6%A6%E0%A6%BE%E0%A6%B0%E0%A7%8D%E0%A6%A5%E0%A7%87%E0%A6%B0%20%E0%A6%AA%E0%A6%B0%E0%A6%BF%E0%A6%AC%E0%A6%B0%E0%A7%8D%E0%A6%A4%E0%A6%A8%20%E0%A6%93%20%E0%A6%B0%E0%A6%BE%E0%A6%B8%E0%A6%BE%E0%A7%9F%E0%A6%A8%E0%A6%BF%E0%A6%95%20%E0%A6%AC%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A7%9F%E0%A6%BE%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>ভৌত পরিবর্তনে পদার্থের রাসায়নিক পরিচয় বদলায় না; রাসায়নিক পরিবর্তনে নতুন পদার্থ তৈরি হয়।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>বরফ গলে পানি হওয়া ভৌত পরিবর্তন। লোহায় মরিচা পড়া রাসায়নিক পরিবর্তন। রাসায়নিক সমীকরণে বিক্রিয়ক ও উৎপাদ দেখানো হয় এবং ভর সংরক্ষিত থাকে—সমীকরণ সাম্য করতে হয়।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>ভৌত পরিবর্তন; রাসায়নিক পরিবর্তন; বিক্রিয়ক; উৎপাদ</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>ভৌত পরিবর্তনের একটি উদাহরণ দাও।</li><li>রাসায়নিক পরিবর্তনে কী তৈরি হয়?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>বরফ গলে পানি হওয়া।</li><li>নতুন পদার্থ।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="earth" data-search="পৃথিবী ও পরিবেশ ১৯. পৃথিবীর গঠন ও ভূ-পৃষ্ঠ পৃথিবীর অভ্যন্তরীণ স্তর, শিলা, মাটি এবং ভূত্বকের পরিবর্তন।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1530053969600-caed2596d242?w=900" alt="পানি ও জলবিজ্ঞান"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">পৃথিবী ও পরিবেশ</span><h3>১৯. পৃথিবীর গঠন ও ভূ-পৃষ্ঠ</h3><p>পৃথিবীর অভ্যন্তরীণ স্তর, শিলা, মাটি এবং ভূত্বকের পরিবর্তন।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A7%E0%A7%AF.%20%E0%A6%AA%E0%A7%83%E0%A6%A5%E0%A6%BF%E0%A6%AC%E0%A7%80%E0%A6%B0%20%E0%A6%97%E0%A6%A0%E0%A6%A8%20%E0%A6%93%20%E0%A6%AD%E0%A7%82-%E0%A6%AA%E0%A7%83%E0%A6%B7%E0%A7%8D%E0%A6%A0%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>পৃথিবীর অভ্যন্তরে প্রধানত ভূত্বক, ম্যান্টল ও কেন্দ্রমণ্ডল রয়েছে। ভূ-পৃষ্ঠে পাহাড়, সমভূমি, মালভূমি, নদী ও সমুদ্র দেখা যায়।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>শিলা ভাঙন ও ক্ষয়ের মাধ্যমে মাটি তৈরি হতে সময় লাগে। ভূত্বকের প্লেটের নড়াচড়ায় ভূমিকম্প, আগ্নেয়গিরি ও পর্বত গঠনের মতো ঘটনা ঘটতে পারে।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>ভূত্বক; ম্যান্টল; কেন্দ্রমণ্ডল; শিলা; ক্ষয়</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>পৃথিবীর তিনটি প্রধান অভ্যন্তরীণ স্তরের নাম লেখো।</li><li>মাটি তৈরিতে কোন প্রক্রিয়া ভূমিকা রাখে?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>ভূত্বক, ম্যান্টল ও কেন্দ্রমণ্ডল।</li><li>শিলার আবহবিকার ও ক্ষয়।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="earth" data-search="পৃথিবী ও পরিবেশ ২০. আবহাওয়া, জলবায়ু ও জলচক্র বৃষ্টি, মেঘ, বাষ্পীভবন, ঘনীভবন এবং জলবায়ুর পরিবর্তন।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=900" alt="পৃথিবীর বন ও পরিবেশ"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">পৃথিবী ও পরিবেশ</span><h3>২০. আবহাওয়া, জলবায়ু ও জলচক্র</h3><p>বৃষ্টি, মেঘ, বাষ্পীভবন, ঘনীভবন এবং জলবায়ুর পরিবর্তন।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A8%E0%A7%A6.%20%E0%A6%86%E0%A6%AC%E0%A6%B9%E0%A6%BE%E0%A6%93%E0%A7%9F%E0%A6%BE%2C%20%E0%A6%9C%E0%A6%B2%E0%A6%AC%E0%A6%BE%E0%A7%9F%E0%A7%81%20%E0%A6%93%20%E0%A6%9C%E0%A6%B2%E0%A6%9A%E0%A6%95%E0%A7%8D%E0%A6%B0%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>আবহাওয়া হলো কোনো স্থানের স্বল্প সময়ের বায়ুমণ্ডলীয় অবস্থা; জলবায়ু হলো দীর্ঘ সময়ের আবহাওয়ার গড় ধরন।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>সূর্যের তাপে পানি বাষ্পীভূত হয়; জলীয় বাষ্প ঠান্ডা হয়ে ঘনীভূত হয়ে মেঘ তৈরি করে; পরে বৃষ্টিপাত হয়। পানি নদী-সমুদ্রে ফিরে গিয়ে জলচক্র সম্পন্ন করে।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>আবহাওয়া; জলবায়ু; বাষ্পীভবন; ঘনীভবন; বৃষ্টিপাত</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>জলচক্র কী?</li><li>আবহাওয়া ও জলবায়ুর পার্থক্য কী?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>পৃথিবীতে পানির বাষ্পীভবন, ঘনীভবন ও বৃষ্টিপাতসহ অবিরাম চলাচল।</li><li>আবহাওয়া স্বল্পমেয়াদি; জলবায়ু দীর্ঘমেয়াদি গড় অবস্থা।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="space" data-search="মহাকাশ ২১. সৌরজগৎ ও গ্রহ সূর্য, আটটি গ্রহ, উপগ্রহ, গ্রহাণু ও ধূমকেতুর পরিচয়।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=900" alt="পৃথিবী ও মহাকাশ"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">মহাকাশ</span><h3>২১. সৌরজগৎ ও গ্রহ</h3><p>সূর্য, আটটি গ্রহ, উপগ্রহ, গ্রহাণু ও ধূমকেতুর পরিচয়।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A8%E0%A7%A7.%20%E0%A6%B8%E0%A7%8C%E0%A6%B0%E0%A6%9C%E0%A6%97%E0%A7%8E%20%E0%A6%93%20%E0%A6%97%E0%A7%8D%E0%A6%B0%E0%A6%B9%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>সৌরজগতের কেন্দ্রে সূর্য রয়েছে। আটটি গ্রহ সূর্যকে কেন্দ্র করে কক্ষপথে ঘোরে। পৃথিবী সূর্য থেকে তৃতীয় গ্রহ।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>গ্রহ নিজস্ব আলো তৈরি করে না; সূর্যের আলো প্রতিফলিত করে। চাঁদ পৃথিবীর প্রাকৃতিক উপগ্রহ। গ্রহাণু ও ধূমকেতুও সৌরজগতের অংশ।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>সূর্য; গ্রহ; উপগ্রহ; গ্রহাণু; ধূমকেতু</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>সৌরজগতে কয়টি গ্রহ?</li><li>পৃথিবীর প্রাকৃতিক উপগ্রহের নাম কী?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>আটটি।</li><li>চাঁদ।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="space" data-search="মহাকাশ ২২. নক্ষত্র, গ্যালাক্সি ও মহাবিশ্ব নক্ষত্রের জন্ম-মৃত্যু, ছায়াপথ এবং মহাবিশ্বের বিশালতা।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=900" alt="মহাকাশ ও নক্ষত্র"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">মহাকাশ</span><h3>২২. নক্ষত্র, গ্যালাক্সি ও মহাবিশ্ব</h3><p>নক্ষত্রের জন্ম-মৃত্যু, ছায়াপথ এবং মহাবিশ্বের বিশালতা।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A8%E0%A7%A8.%20%E0%A6%A8%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%A4%E0%A7%8D%E0%A6%B0%2C%20%E0%A6%97%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%95%E0%A7%8D%E0%A6%B8%E0%A6%BF%20%E0%A6%93%20%E0%A6%AE%E0%A6%B9%E0%A6%BE%E0%A6%AC%E0%A6%BF%E0%A6%B6%E0%A7%8D%E0%A6%AC%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>নক্ষত্র হলো উত্তপ্ত গ্যাসের বিশাল গোলক, যা নিজস্ব আলো ও তাপ উৎপন্ন করে। সূর্যও একটি নক্ষত্র।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>গ্যালাক্সি হলো অসংখ্য নক্ষত্র, গ্যাস, ধূলিকণা ও অদৃশ্য পদার্থের মহাকর্ষে আবদ্ধ বিশাল ব্যবস্থা। আমাদের সৌরজগৎ আকাশগঙ্গা গ্যালাক্সিতে অবস্থিত। মহাবিশ্বে অসংখ্য গ্যালাক্সি রয়েছে।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>নক্ষত্র; গ্যালাক্সি; আকাশগঙ্গা; মহাবিশ্ব</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>সূর্য কী?</li><li>আমাদের গ্যালাক্সির নাম কী?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>একটি নক্ষত্র।</li><li>আকাশগঙ্গা (Milky Way)।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="technology" data-search="প্রযুক্তি ২৩. কম্পিউটার, ইন্টারনেট ও সাইবার নিরাপত্তা কম্পিউটারের মৌলিক অংশ, নেটওয়ার্ক, ব্যক্তিগত তথ্য সুরক্ষা ও নিরাপদ ব্যবহার।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900" alt="কম্পিউটার চিপ"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">প্রযুক্তি</span><h3>২৩. কম্পিউটার, ইন্টারনেট ও সাইবার নিরাপত্তা</h3><p>কম্পিউটারের মৌলিক অংশ, নেটওয়ার্ক, ব্যক্তিগত তথ্য সুরক্ষা ও নিরাপদ ব্যবহার।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A8%E0%A7%A9.%20%E0%A6%95%E0%A6%AE%E0%A7%8D%E0%A6%AA%E0%A6%BF%E0%A6%89%E0%A6%9F%E0%A6%BE%E0%A6%B0%2C%20%E0%A6%87%E0%A6%A8%E0%A7%8D%E0%A6%9F%E0%A6%BE%E0%A6%B0%E0%A6%A8%E0%A7%87%E0%A6%9F%20%E0%A6%93%20%E0%A6%B8%E0%A6%BE%E0%A6%87%E0%A6%AC%E0%A6%BE%E0%A6%B0%20%E0%A6%A8%E0%A6%BF%E0%A6%B0%E0%A6%BE%E0%A6%AA%E0%A6%A4%E0%A7%8D%E0%A6%A4%E0%A6%BE%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>কম্পিউটার তথ্য গ্রহণ, প্রক্রিয়াকরণ, সংরক্ষণ ও ফলাফল প্রদর্শন করে। ইন্টারনেট বিশ্বজুড়ে কম্পিউটার নেটওয়ার্কের সংযোগ।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>হার্ডওয়্যার হলো স্পর্শযোগ্য যন্ত্রাংশ; সফটওয়্যার হলো নির্দেশনা/প্রোগ্রাম। শক্তিশালী আলাদা পাসওয়ার্ড, দুই-ধাপ যাচাইকরণ, ব্যক্তিগত তথ্য গোপন রাখা এবং সন্দেহজনক লিংক এড়িয়ে চলা জরুরি।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>হার্ডওয়্যার; সফটওয়্যার; নেটওয়ার্ক; পাসওয়ার্ড; ফিশিং</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>হার্ডওয়্যার কী?</li><li>অনলাইনে নিরাপদ থাকার দুটি নিয়ম লেখো।</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>কম্পিউটারের স্পর্শযোগ্য অংশ।</li><li>শক্তিশালী আলাদা পাসওয়ার্ড ব্যবহার; অচেনা লিংক/ফাইল না খোলা।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="technology" data-search="প্রযুক্তি ২৪. কৃত্রিম বুদ্ধিমত্তা ও রোবট AI কীভাবে তথ্য থেকে শেখে, রোবটের সেন্সর ও বাস্তব জীবনের ব্যবহার।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900" alt="কৃত্রিম বুদ্ধিমত্তা"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">প্রযুক্তি</span><h3>২৪. কৃত্রিম বুদ্ধিমত্তা ও রোবট</h3><p>AI কীভাবে তথ্য থেকে শেখে, রোবটের সেন্সর ও বাস্তব জীবনের ব্যবহার।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A8%E0%A7%AA.%20%E0%A6%95%E0%A7%83%E0%A6%A4%E0%A7%8D%E0%A6%B0%E0%A6%BF%E0%A6%AE%20%E0%A6%AC%E0%A7%81%E0%A6%A6%E0%A7%8D%E0%A6%A7%E0%A6%BF%E0%A6%AE%E0%A6%A4%E0%A7%8D%E0%A6%A4%E0%A6%BE%20%E0%A6%93%20%E0%A6%B0%E0%A7%8B%E0%A6%AC%E0%A6%9F%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>কৃত্রিম বুদ্ধিমত্তা (AI) হলো কম্পিউটার ব্যবস্থার এমন সক্ষমতা, যার মাধ্যমে এটি তথ্য বিশ্লেষণ, ভাষা বোঝা, ছবি শনাক্ত বা সিদ্ধান্তে সহায়তা করতে পারে।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>মেশিন লার্নিংয়ে কম্পিউটার উদাহরণ-তথ্য থেকে প্যাটার্ন শেখে। রোবট সেন্সর দিয়ে পরিবেশ সম্পর্কে তথ্য পায় এবং প্রোগ্রাম অনুযায়ী কাজ করে। AI ভুল করতে পারে, তাই গুরুত্বপূর্ণ তথ্য যাচাই করা প্রয়োজন।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>AI; ডেটা; মেশিন লার্নিং; সেন্সর; রোবট</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>AI-এর একটি ব্যবহার লেখো।</li><li>রোবটের সেন্সর কী কাজে লাগে?</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>ভাষা অনুবাদ, ছবি শনাক্তকরণ বা সহায়ক শিক্ষা।</li><li>পরিবেশ থেকে তথ্য সংগ্রহ করতে।</li></ol>
+       </div>
+      </details></article>
+    <article class="card searchable-card chapter-card" data-category="technology" data-search="প্রযুক্তি ২৫. নবায়নযোগ্য শক্তি ও ভবিষ্যৎ প্রযুক্তি সৌর, বায়ু ও জলবিদ্যুৎ; শক্তি সাশ্রয় এবং নতুন প্রযুক্তির সম্ভাবনা।">
+      <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=900" alt="রোবট প্রযুক্তি"><span class="play">📺 ছবি ও ভিডিও পাঠ</span></div>
+      <div class="body"><span class="tag">প্রযুক্তি</span><h3>২৫. নবায়নযোগ্য শক্তি ও ভবিষ্যৎ প্রযুক্তি</h3><p>সৌর, বায়ু ও জলবিদ্যুৎ; শক্তি সাশ্রয় এবং নতুন প্রযুক্তির সম্ভাবনা।</p>
+      <a class="link" href="https://www.youtube.com/results?search_query=%E0%A7%A8%E0%A7%AB.%20%E0%A6%A8%E0%A6%AC%E0%A6%BE%E0%A7%9F%E0%A6%A8%E0%A6%AF%E0%A7%8B%E0%A6%97%E0%A7%8D%E0%A6%AF%20%E0%A6%B6%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%BF%20%E0%A6%93%20%E0%A6%AD%E0%A6%AC%E0%A6%BF%E0%A6%B7%E0%A7%8D%E0%A6%AF%E0%A7%8E%20%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%AF%E0%A7%81%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%BF%20%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%9C%E0%A7%8D%E0%A6%9E%E0%A6%BE%E0%A6%A8%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE" target="_blank" rel="noopener">▶ ভিডিও দেখুন →</a></div>
+    
+      <details class="lesson-details">
+       <summary>📖 সম্পূর্ণ পাঠ ও অনুশীলনী পড়ো</summary>
+       <div class="lesson-content">
+        <h4>১. মূল ধারণা</h4><p>যে শক্তির উৎস প্রাকৃতিকভাবে পুনরায় পূরণ হয় তাকে নবায়নযোগ্য শক্তি বলে। সৌর, বায়ু ও জলবিদ্যুৎ এর উদাহরণ।</p>
+        <h4>২. বিস্তারিত আলোচনা</h4><p>জীবাশ্ম জ্বালানির তুলনায় নবায়নযোগ্য উৎস ব্যবহারে দূষণ ও গ্রিনহাউস গ্যাস কমাতে সাহায্য হতে পারে, তবে উৎপাদন আবহাওয়া ও সংরক্ষণ ব্যবস্থার ওপর নির্ভর করে। শক্তি সাশ্রয়ও গুরুত্বপূর্ণ।</p>
+        <h4>৩. গুরুত্বপূর্ণ শব্দ</h4><p>নবায়নযোগ্য শক্তি; সৌরশক্তি; বায়ুশক্তি; জলবিদ্যুৎ</p>
+        <h4>৪. নিজে যাচাই করো</h4>
+        <ol><li>নবায়নযোগ্য শক্তির দুটি উদাহরণ দাও।</li><li>শক্তি সাশ্রয়ের একটি উপায় লেখো।</li></ol>
+        <h4>উত্তর মিলিয়ে দেখো</h4>
+        <ol><li>সৌরশক্তি ও বায়ুশক্তি।</li><li>অপ্রয়োজনে বাতি ও বৈদ্যুতিক যন্ত্র বন্ধ রাখা।</li></ol>
+       </div>
+      </details></article>
+   </div>
+   <p style="color:var(--muted);font-size:13px;margin-top:12px">প্রতিটি অধ্যায়ের কার্ডে বিষয়ভিত্তিক ছবি, ভিডিও দেখার লিংক, মূল ধারণা, বিস্তারিত আলোচনা, গুরুত্বপূর্ণ শব্দ এবং প্রশ্নোত্তর রয়েছে। ভিডিও লিংক চাপলে YouTube-এ ওই বিষয়ের শিক্ষামূলক ভিডিওর ফলাফল খুলবে। এগুলো Science World-এর নিজস্ব প্রাথমিক পাঠ; নির্দিষ্ট শ্রেণির NCTB বইয়ের হুবহু অধ্যায়-তালিকা নয়।</p>
+  </div>
+
+  <p class="empty" id="topicEmpty">কোনো পাঠ পাওয়া যায়নি। অন্য শব্দ দিয়ে খুঁজুন।</p>
+ </section>
+
+
+ <section id="advanced">
+  <div class="heading"><div><h2>🌍 পৃথিবীর উন্নত বিজ্ঞান ও প্রযুক্তি</h2><p>বিশ্বের আধুনিক গবেষণা, আবিষ্কার, ছবি ও সহজ ব্যাখ্যা</p></div></div>
+  <div class="grid">
+   <article class="card searchable-card" data-search="উন্নত মহাকাশ গবেষণা জেমস ওয়েব টেলিস্কোপ গ্যালাক্সি exoplanet NASA">
+    <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=900" alt="মহাকাশ ও পৃথিবীর দৃশ্য"></div>
+    <div class="body"><h3>জেমস ওয়েব ও মহাকাশ গবেষণা</h3><p>ইনফ্রারেড টেলিস্কোপ দিয়ে দূরের গ্যালাক্সি, নক্ষত্রের জন্ম এবং অন্য নক্ষত্রের গ্রহের বায়ুমণ্ডল নিয়ে গবেষণা করা হয়।</p><div class="meta"><span class="tag">জ্যোতির্বিজ্ঞান</span><span class="tag">উন্নত গবেষণা</span></div><a class="link" href="https://science.nasa.gov/mission/webb/science-overview/" target="_blank" rel="noopener">NASA-র তথ্য ও ছবি →</a></div>
+   </article>
+   <article class="card searchable-card" data-search="কোয়ান্টাম কম্পিউটার quantum computing qubit superposition entanglement">
+    <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900" alt="কম্পিউটার চিপ"></div>
+    <div class="body"><h3>কোয়ান্টাম কম্পিউটার</h3><p>কিউবিট ও কোয়ান্টাম পদার্থবিজ্ঞানের নীতি ব্যবহার করে নির্দিষ্ট জটিল সমস্যা সমাধানের নতুন ধরনের কম্পিউটিং। প্রযুক্তিটি এখনো বিকাশমান।</p><div class="meta"><span class="tag">কম্পিউটার বিজ্ঞান</span><span class="tag">গবেষণা চলছে</span></div><a class="link" href="https://www.nist.gov/quantum-information-science/quantum-computing-explained" target="_blank" rel="noopener">NIST-এ সহজ ব্যাখ্যা →</a></div>
+   </article>
+   <article class="card searchable-card" data-search="জেনেটিক ইঞ্জিনিয়ারিং DNA genome gene editing biotechnology">
+    <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?w=900" alt="জীববিজ্ঞান ও জেনেটিক গবেষণা"></div>
+    <div class="body"><h3>জিন ও জেনেটিক প্রযুক্তি</h3><p>DNA-তে জীবের বংশগত তথ্য থাকে। বিজ্ঞানীরা জিন, জিনোম ও জিন-সম্পাদনা নিয়ে গবেষণা করেন, যার সম্ভাব্য প্রয়োগ চিকিৎসা ও কৃষিতে।</p><div class="meta"><span class="tag">জীবপ্রযুক্তি</span><span class="tag">DNA</span></div><a class="link" href="https://www.genome.gov/" target="_blank" rel="noopener">NHGRI-র জিনোম শিক্ষা →</a></div>
+   </article>
+   <article class="card searchable-card" data-search="নিউক্লিয়ার ফিউশন শক্তি সূর্য tokamak plasma fusion energy">
+    <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=900" alt="সূর্য ও মহাকাশ"></div>
+    <div class="body"><h3>নিউক্লিয়ার ফিউশন শক্তি</h3><p>হালকা পরমাণুর নিউক্লিয়াস যুক্ত হলে শক্তি বের হয়। সূর্য এভাবেই শক্তি উৎপন্ন করে; পৃথিবীতে নিয়ন্ত্রিত ফিউশন নিয়ে গবেষণা চলছে।</p><div class="meta"><span class="tag">শক্তি বিজ্ঞান</span><span class="tag">গবেষণা চলছে</span></div><a class="link" href="https://www.energy.gov/science/doe-explainsfusion-energy-science" target="_blank" rel="noopener">যুক্তরাষ্ট্রের জ্বালানি দপ্তরের ব্যাখ্যা →</a></div>
+   </article>
+   <article class="card searchable-card" data-search="ন্যানোটেকনোলজি nano materials nanometer medicine electronics">
+    <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900" alt="মাইক্রোস্কোপ ও গবেষণাগার"></div>
+    <div class="body"><h3>ন্যানোটেকনোলজি</h3><p>প্রায় ১–১০০ ন্যানোমিটার স্কেলে পদার্থকে বোঝা ও নিয়ন্ত্রণের প্রযুক্তি। চিকিৎসা, ইলেকট্রনিকস ও পানি পরিশোধনে এর প্রয়োগ নিয়ে কাজ হচ্ছে।</p><div class="meta"><span class="tag">পদার্থবিজ্ঞান</span><span class="tag">প্রযুক্তি</span></div><a class="link" href="https://www.nano.gov/about-nanotechnology/" target="_blank" rel="noopener">National Nanotechnology Initiative →</a></div>
+   </article>
+   <article class="card searchable-card" data-search="মেশিন লার্নিং কৃত্রিম বুদ্ধিমত্তা AI machine learning">
+    <div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900" alt="কৃত্রিম বুদ্ধিমত্তার চিত্র"></div>
+    <div class="body"><h3>কৃত্রিম বুদ্ধিমত্তা ও মেশিন লার্নিং</h3><p>কম্পিউটারকে তথ্য থেকে ধরন শনাক্ত করা, ভাষা বোঝা ও নির্দিষ্ট কাজ করতে শেখানোর পদ্ধতি।</p><div class="meta"><span class="tag">AI</span><span class="tag">কম্পিউটার বিজ্ঞান</span></div><a class="link" href="https://www.ibm.com/think/topics/artificial-intelligence" target="_blank" rel="noopener">AI সম্পর্কে আরও জানুন →</a></div>
+   </article>
+  </div>
+  <p style="color:var(--muted);font-size:12px;margin-top:12px">নোট: কিছু প্রযুক্তি ব্যবহারিকভাবে কাজে লাগছে, আর কিছু এখনো গবেষণা ও উন্নয়নের পর্যায়ে। প্রতিটি পাঠে এই পার্থক্য স্পষ্ট করে দেখানো হবে।</p>
+ </section>
+
+ <section id="videos">
+  <div class="heading"><div><h2>▶️ ভিডিও লাইব্রেরি</h2><p>বিজ্ঞান বুঝতে দেখুন শিক্ষামূলক ভিডিও</p></div></div>
+  <div class="grid">
+   <article class="card searchable-card" data-search="মানবদেহের রক্ত সঞ্চালন ভিডিও heart blood circulation"><div class="thumb"><div class="emoji">🫀</div><span class="play">▶ ভিডিও খুঁজুন</span></div><div class="body"><h3>রক্ত সঞ্চালন কীভাবে হয়?</h3><p>হৃদপিণ্ড ও রক্ত চলাচল সম্পর্কে ভিডিও।</p><a class="link" href="https://www.youtube.com/results?search_query=রক্ত+সঞ্চালন+বাংলা+animation" target="_blank" rel="noopener">ভিডিও দেখুন →</a></div></article>
+   <article class="card searchable-card" data-search="সৌরজগৎ গ্রহ মহাকাশ ভিডিও solar system"><div class="thumb"><div class="emoji">🪐</div><span class="play">▶ ভিডিও খুঁজুন</span></div><div class="body"><h3>সৌরজগতের পরিচয়</h3><p>সূর্য ও আটটি গ্রহের পরিচিতি।</p><a class="link" href="https://www.youtube.com/results?search_query=সৌরজগৎ+বাংলা+animation" target="_blank" rel="noopener">ভিডিও দেখুন →</a></div></article>
+   <article class="card searchable-card" data-search="কৃত্রিম বুদ্ধিমত্তা AI video"><div class="thumb"><div class="emoji">🤖</div><span class="play">▶ ভিডিও খুঁজুন</span></div><div class="body"><h3>AI কী এবং কীভাবে কাজ করে?</h3><p>কৃত্রিম বুদ্ধিমত্তার প্রাথমিক ধারণা।</p><a class="link" href="https://www.youtube.com/results?search_query=কৃত্রিম+বুদ্ধিমত্তা+বাংলা" target="_blank" rel="noopener">ভিডিও দেখুন →</a></div></article>
+  </div>
+ </section>
+
+ <section id="projects">
+  <div class="heading"><div><h2>🧪 হাতে-কলমে বিজ্ঞান প্রজেক্ট</h2><p>নিজে তৈরি করো, পরীক্ষা করো, কারণ বোঝো</p></div></div>
+  <div class="grid">
+   <article class="card searchable-card" data-search="পানি ফিল্টার জল পরিশোধন project water filter"><div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1530053969600-caed2596d242?w=800" alt="পানি ও জলবিজ্ঞান"></div><div class="body"><h3>সহজ পানি ছাঁকনি মডেল</h3><p>স্তরভিত্তিক ছাঁকনির ধারণা শেখার মডেল। এটি পান করার নিরাপদ পানি নিশ্চিত করে না।</p><div class="meta"><span class="tag">সহজ</span><span class="tag">কম খরচ</span></div><a class="link" href="https://www.youtube.com/results?search_query=school+science+water+filter+project+বাংলা" target="_blank" rel="noopener">প্রজেক্ট ভিডিও →</a></div></article>
+   <article class="card searchable-card" data-search="সৌরজগত মডেল solar system project"><div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=800" alt="গ্রহের মডেল"></div><div class="body"><h3>সৌরজগতের মডেল</h3><p>গ্রহগুলোর অবস্থান ও কক্ষপথের একটি শিক্ষামূলক মডেল।</p><div class="meta"><span class="tag">সহজ</span><span class="tag">মডেল</span></div><a class="link" href="https://www.youtube.com/results?search_query=solar+system+school+project+বাংলা" target="_blank" rel="noopener">প্রজেক্ট ভিডিও →</a></div></article>
+   <article class="card searchable-card" data-search="বৈদ্যুতিক বর্তনী electric circuit project"><div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1517074859227-2f4d7c1b3c6e?w=800" alt="ইলেকট্রনিক্স ও সার্কিট"></div><div class="body"><h3>সহজ বৈদ্যুতিক বর্তনী</h3><p>বর্তনী, সুইচ ও বিদ্যুৎ প্রবাহের ধারণা। নিরাপদ কম-ভোল্টেজ শিক্ষামূলক মডেল।</p><div class="meta"><span class="tag">মাঝারি</span><span class="tag">প্রযুক্তি</span></div><a class="link" href="https://www.youtube.com/results?search_query=low+voltage+school+electric+circuit+project" target="_blank" rel="noopener">প্রজেক্ট ভিডিও →</a></div></article>
+   <article class="card searchable-card" data-search="বীজ অঙ্কুরোদগম উদ্ভিদ project seed germination"><div class="thumb"><img loading="lazy" src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800" alt="চারা গাছ"></div><div class="body"><h3>বীজের অঙ্কুরোদগম পর্যবেক্ষণ</h3><p>বীজ থেকে চারা হওয়ার ধাপ ছবি দিয়ে নথিবদ্ধ করো।</p><div class="meta"><span class="tag">সহজ</span><span class="tag">জীববিজ্ঞান</span></div><a class="link" href="https://www.youtube.com/results?search_query=seed+germination+school+project+বাংলা" target="_blank" rel="noopener">প্রজেক্ট ভিডিও →</a></div></article>
+   <article class="card searchable-card" data-search="বায়ুচাপ air pressure science project"><div class="thumb"><div class="emoji">🎈</div></div><div class="body"><h3>বায়ুচাপের সহজ পরীক্ষা</h3><p>নিরাপদ ঘরোয়া পর্যবেক্ষণে বায়ুচাপের ধারণা বোঝো।</p><div class="meta"><span class="tag">সহজ</span><span class="tag">পদার্থবিজ্ঞান</span></div><a class="link" href="https://www.youtube.com/results?search_query=air+pressure+simple+science+experiment" target="_blank" rel="noopener">প্রজেক্ট ভিডিও →</a></div></article>
+   <article class="card searchable-card" data-search="বৃষ্টিমাপক rain gauge project"><div class="thumb"><div class="emoji">🌧️</div></div><div class="body"><h3>সহজ বৃষ্টিমাপক</h3><p>বৃষ্টির পরিমাণ পর্যবেক্ষণ ও তথ্য লিখে রাখার মডেল।</p><div class="meta"><span class="tag">সহজ</span><span class="tag">আবহাওয়া</span></div><a class="link" href="https://www.youtube.com/results?search_query=homemade+rain+gauge+school+project" target="_blank" rel="noopener">প্রজেক্ট ভিডিও →</a></div></article>
+  </div>
+ </section>
+
+ <section id="books">
+  <div class="heading"><div><h2>📚 শ্রেণিভিত্তিক বই ও পাঠ</h2><p>বিভিন্ন শ্রেণির পাঠ্যসূচি ধরে নিজের ভাষায় নোট ও অনুশীলন</p></div></div>
+  <div class="bookrow">
+   <a class="book searchable-card" data-search="ষষ্ঠ শ্রেণি class 6 science" href="https://nctb.gov.bd/"><strong>৬ষ্ঠ</strong><small>বিজ্ঞান ও পাঠ</small></a>
+   <a class="book searchable-card" data-search="সপ্তম শ্রেণি class 7 science" href="https://nctb.gov.bd/"><strong>৭ম</strong><small>বিজ্ঞান ও পাঠ</small></a>
+   <a class="book searchable-card" data-search="অষ্টম শ্রেণি class 8 science" href="https://nctb.gov.bd/"><strong>৮ম</strong><small>বিজ্ঞান ও পাঠ</small></a>
+   <a class="book searchable-card" data-search="নবম শ্রেণি class 9 physics chemistry biology" href="https://nctb.gov.bd/"><strong>৯ম</strong><small>বিজ্ঞান বিভাগ</small></a>
+   <a class="book searchable-card" data-search="দশম শ্রেণি class 10 physics chemistry biology" href="https://nctb.gov.bd/"><strong>১০ম</strong><small>বিজ্ঞান বিভাগ</small></a>
+  </div>
+  <div class="grid" style="margin-top:18px">
+   <article class="card searchable-card" data-search="NCTB জাতীয় শিক্ষাক্রম পাঠ্যবই"><div class="body"><h3>📘 NCTB পাঠ্যবই</h3><p>সরকারি পাঠ্যসূচি অনুসারে শ্রেণি ও অধ্যায়ভিত্তিক শেখা।</p><a class="link" href="https://nctb.gov.bd/" target="_blank" rel="noopener">NCTB ওয়েবসাইট →</a></div></article>
+   <article class="card searchable-card" data-search="সহায়ক বই গাইড ব্যাখ্যা অনুশীলন"><div class="body"><h3>📗 গাইড ও সহায়ক বই</h3><p>বিভিন্ন প্রকাশনীর সহায়ক বইয়ের ধারণা, অনুশীলন ও তুলনামূলক নোট। কপিরাইট মেনে নিজস্ব ব্যাখ্যা থাকবে।</p><span class="tag">পরিকল্পিত</span></div></article>
+   <article class="card searchable-card" data-search="বিজ্ঞান ম্যাগাজিন বিজ্ঞান সংবাদ আবিষ্কার"><div class="body"><h3>📰 বিজ্ঞান ম্যাগাজিন</h3><p>নতুন আবিষ্কার, বিজ্ঞান সংবাদ, বিজ্ঞানীদের পরিচিতি ও কৌতূহলোদ্দীপক তথ্য।</p><span class="tag">পরিকল্পিত</span></div></article>
+   <article class="card searchable-card" data-search="নিজস্ব নোট অধ্যায় সারাংশ সংজ্ঞা"><div class="body"><h3>📝 Science World-এর নিজস্ব নোট</h3><p>সহজ বাংলা ব্যাখ্যা, চিত্র, সারাংশ, শব্দার্থ ও মনে রাখার কৌশল।</p><span class="tag">নিজস্ব শিক্ষাসামগ্রী</span></div></article>
+   <article class="card searchable-card" data-search="প্রশ্ন উত্তর MCQ সৃজনশীল অনুশীলন"><div class="body"><h3>❓ প্রশ্ন ও অনুশীলন</h3><p>অধ্যায়ভিত্তিক MCQ, সংক্ষিপ্ত প্রশ্ন, সৃজনশীল অনুশীলন ও স্ব-মূল্যায়ন।</p><span class="tag">পরিকল্পিত</span></div></article>
+   <article class="card searchable-card" data-search="বিজ্ঞান বিশ্বকোষ glossary dictionary"><div class="body"><h3>📚 বিজ্ঞান শব্দকোষ</h3><p>বিজ্ঞানের গুরুত্বপূর্ণ বাংলা ও ইংরেজি শব্দের সহজ অর্থ ও উদাহরণ।</p><span class="tag">পরিকল্পিত</span></div></article>
+  </div>
+  <p style="color:var(--muted);font-size:13px;margin-top:14px">বইয়ের সরকারি সংস্করণ ও পাঠ্যসূচির জন্য NCTB ওয়েবসাইট দেখুন। অন্য প্রকাশনীর বইয়ের ক্ষেত্রে অনুমতি ও কপিরাইট মেনে নিজস্ব সারাংশ, ব্যাখ্যা ও অনুশীলন তৈরি করা হবে; অনুমতি ছাড়া পুরো বই কপি করা হবে না।</p>
+ </section>
+
+ <section id="quiz">
+  <div class="heading"><div><h2>🧠 বিজ্ঞান কুইজ</h2><p>নিজের জ্ঞান যাচাই করো</p></div></div>
+  <div class="quizbox"><h3 id="question">১. মানবদেহে রক্ত পাম্প করে কোন অঙ্গ?</h3><div id="answers"></div><p id="feedback" aria-live="polite"></p><button class="btn" id="next">পরবর্তী প্রশ্ন</button></div>
+ </section>
+
+ <section id="about">
+  <div class="about"><div class="eyebrow">ABOUT SCIENCE WORLD</div><h2 style="color:var(--cyan)">জানুন • শিখুন • আবিষ্কার করুন</h2><p>Science World একটি বাংলা বিজ্ঞান ও প্রযুক্তি শিক্ষামূলক প্ল্যাটফর্ম। সহজ ভাষায় পাঠ, ছবি, ভিডিও, কুইজ ও হাতে-কলমে প্রজেক্টের মাধ্যমে শেখাকে আনন্দদায়ক করাই এর লক্ষ্য।</p></div>
+ </section>
+</main>
+<footer><div class="wrap">© 2026 <span style="color:var(--cyan)">Science World</span> · Learn • Explore • Discover</div></footer>
+<script>
+const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+menuBtn.addEventListener('click',()=>{const opened=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',opened)});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false')}));
+const searchInput=document.getElementById('searchInput');
+const searchable=[...document.querySelectorAll('.searchable-card')];
+document.getElementById('searchForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('topics').scrollIntoView({behavior:'smooth'})});
+searchInput.addEventListener('input',()=>{
+ const q=searchInput.value.trim().toLocaleLowerCase('bn');
+ let shown=0;
+ searchable.forEach(el=>{const text=((el.dataset.search||'')+' '+el.innerText).toLocaleLowerCase('bn');const match=!q||text.includes(q);el.style.display=match?'':'none';if(match)shown++});
+ document.getElementById('topicEmpty').style.display=(q&&shown===0)?'block':'none';
+});
+document.querySelectorAll('[data-filter-group="topics"] .chip').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('[data-filter-group="topics"] .chip').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+ const f=btn.dataset.filter;let shown=0;
+ document.querySelectorAll('#topicGrid .card').forEach(card=>{const ok=f==='all'||card.dataset.category===f;card.style.display=ok?'':'none';if(ok)shown++});
+ document.getElementById('topicEmpty').style.display=shown?'none':'block';
+}));
+
+document.querySelectorAll('[data-chapter-filter]').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('[data-chapter-filter]').forEach(b=>b.classList.remove('active'));
+ btn.classList.add('active');
+ const f=btn.dataset.chapterFilter;
+ document.querySelectorAll('#chapterGrid .chapter-card').forEach(card=>{
+  card.style.display=(f==='all'||card.dataset.category===f)?'':'none';
+ });
+}));
+
+const quiz=[
+ {q:'মানবদেহে রক্ত পাম্প করে কোন অঙ্গ?',a:['ফুসফুস','হৃৎপিণ্ড','যকৃত','কিডনি'],c:1},
+ {q:'পৃথিবীর প্রাকৃতিক উপগ্রহ কোনটি?',a:['সূর্য','মঙ্গল','চাঁদ','শুক্র'],c:2},
+ {q:'উদ্ভিদ কোন প্রক্রিয়ায় খাদ্য তৈরি করে?',a:['শ্বসন','সালোকসংশ্লেষণ','পরিপাক','বাষ্পীভবন'],c:1},
+ {q:'পানির রাসায়নিক সংকেত কী?',a:['CO₂','O₂','H₂O','NaCl'],c:2},
+ {q:'কম্পিউটারের প্রধান প্রক্রিয়াকরণ অংশ কোনটি?',a:['CPU','Mouse','Monitor','Keyboard'],c:0}
+];
+let qi=0,score=0,answered=false,finished=false;
+function loadQuiz(){const q=quiz[qi];document.getElementById('question').textContent=(qi+1)+'. '+q.q;const box=document.getElementById('answers');box.innerHTML='';document.getElementById('feedback').textContent='';answered=false;finished=false;q.a.forEach((v,i)=>{const b=document.createElement('button');b.className='answer';b.textContent=v;b.addEventListener('click',()=>{if(answered)return;answered=true;if(i===q.c){score++;document.getElementById('feedback').textContent='✓ সঠিক উত্তর!';}else{document.getElementById('feedback').textContent='সঠিক উত্তর: '+q.a[q.c];}});box.appendChild(b)});document.getElementById('next').textContent=qi===quiz.length-1?'ফলাফল দেখুন':'পরবর্তী প্রশ্ন'}
+document.getElementById('next').addEventListener('click',()=>{if(finished){qi=0;score=0;loadQuiz();return}if(!answered){document.getElementById('feedback').textContent='আগে একটি উত্তর নির্বাচন করো।';return}if(qi<quiz.length-1){qi++;loadQuiz()}else{finished=true;document.getElementById('question').textContent='কুইজ সম্পন্ন!';document.getElementById('answers').innerHTML='';document.getElementById('feedback').textContent='তোমার স্কোর: '+score+'/'+quiz.length;document.getElementById('next').textContent='আবার খেলো'}});
+loadQuiz();
+</script>
+</body>
+</html>
